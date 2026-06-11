@@ -1,0 +1,51 @@
+---
+/**
+ * "Kinetic Aurora" experience-layer DOM (ported from the legacy
+ * experience.css / experience.js). These are decorative, JS-driven
+ * elements. They self-dismiss via a CSS failsafe if the animation
+ * island never runs, so the page is never trapped behind the loader.
+ */
+---
+
+{/* KINETIC AURORA — cinematic intro (auto-removed on load) */}
+<div class="cs-loader" aria-hidden="true">
+  <svg class="cs-loader-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <defs>
+      <clipPath id="l-clip"><polygon points="100,18 178,95 100,172 22,95" /></clipPath>
+      <linearGradient id="l-l" x1="0%" y1="0%" x2="100%" y2="100%"
+        ><stop offset="0%" stop-color="#00d4ff" /><stop offset="100%" stop-color="#7c13c8" /></linearGradient
+      >
+      <linearGradient id="l-r" x1="0%" y1="0%" x2="100%" y2="100%"
+        ><stop offset="0%" stop-color="#8b19d6" /><stop offset="100%" stop-color="#ff6a00" /></linearGradient
+      >
+    </defs>
+    <g clip-path="url(#l-clip)">
+      <path
+        d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z"
+        fill="url(#l-l)"
+      ></path>
+      <path
+        d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z"
+        fill="url(#l-r)"
+      ></path>
+    </g>
+    <polygon
+      points="100,18 178,95 100,172 22,95"
+      fill="none"
+      stroke="rgba(255,255,255,0.14)"
+      stroke-width="1.5"></polygon>
+  </svg>
+  <div class="cs-loader-word">
+    <span>C</span><span>l</span><span>a</span><span>r</span><span>i</span><span>t</span><span>y</span
+    ><span>S</span><span>c</span><span>a</span><span>l</span><span>e</span>
+  </div>
+  <div class="cs-loader-bar"><div class="cs-loader-bar-fill"></div></div>
+</div>
+<div class="cs-curtain cs-curtain-top" aria-hidden="true"></div>
+<div class="cs-curtain cs-curtain-bot" aria-hidden="true"></div>
+
+{/* Scroll progress beam + grain texture + custom cursor */}
+<div class="cs-progress" aria-hidden="true"></div>
+<div class="cs-grain" aria-hidden="true"></div>
+<div class="cs-cursor" aria-hidden="true"></div>
+<div class="cs-cursor-ring" aria-hidden="true"></div>

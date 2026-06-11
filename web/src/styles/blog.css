@@ -1,0 +1,453 @@
+/* ============================================================
+   ClarityScale — blog.css
+   Styles for the blog index, the post page, and a full .prose
+   typographic system. Reuses the global design tokens.
+============================================================ */
+
+/* ── Shared page scaffolding ── */
+.blog-page,
+.post {
+  padding: calc(var(--nav-h) + 4rem) 0 6rem;
+}
+
+.post-container {
+  max-width: 760px;
+}
+
+/* ── Index header ── */
+.blog-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.blog-header .section-title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0.6rem 0 1rem;
+}
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.blog-header-sub {
+  color: var(--text-2);
+  font-size: 1.075rem;
+  line-height: 1.7;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+/* ── Category filter chips ── */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0 auto 3rem;
+}
+
+.blog-chip {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition:
+    color var(--t-fast),
+    background var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.blog-chip:hover {
+  color: var(--text-1);
+  background: var(--surface-h);
+  border-color: var(--border-h);
+}
+
+.blog-chip.is-active {
+  color: var(--bg);
+  background: var(--grad-main);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* ── Post grid ── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition:
+    transform var(--t-med),
+    border-color var(--t-med),
+    box-shadow var(--t-med);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-h);
+  box-shadow: var(--shadow-md);
+}
+
+.blog-card-cover {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.blog-card-sheen {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 120% at 0% 0%,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 55%
+  );
+  mix-blend-mode: screen;
+}
+
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.blog-card-chip {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+}
+
+.blog-card-title {
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--text-1);
+}
+
+.blog-card-desc {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--text-3);
+  font-size: 0.825rem;
+}
+
+.blog-card-dot,
+.post-dot {
+  opacity: 0.6;
+}
+
+.blog-empty {
+  text-align: center;
+  color: var(--text-2);
+  margin-top: 3rem;
+}
+
+/* ── Post page ── */
+.post-back,
+.post-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-back {
+  color: var(--text-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  transition: color var(--t-fast);
+}
+
+.post-back:hover {
+  color: var(--text-1);
+}
+
+.post-hero {
+  margin-bottom: 2.5rem;
+}
+
+.post-chip {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-title {
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+  line-height: 1.12;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  flex-wrap: wrap;
+  color: var(--text-2);
+  font-size: 0.95rem;
+  margin-bottom: 2.25rem;
+}
+
+.post-cover {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  border-radius: var(--r-2xl);
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Closing CTA ── */
+.post-cta {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  text-align: center;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+}
+
+.post-cta h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.75rem;
+}
+
+.post-cta p {
+  color: var(--text-2);
+  margin-bottom: 1.75rem;
+}
+
+.post-cta-btn {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--grad-main);
+  border-radius: var(--r-md);
+  padding: 0.85rem 1.75rem;
+  transition:
+    transform var(--t-fast),
+    box-shadow var(--t-fast);
+}
+
+.post-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ============================================================
+   .prose — typographic system for rendered Markdown
+============================================================ */
+.prose {
+  color: var(--text-2);
+  font-size: 1.075rem;
+  line-height: 1.8;
+}
+
+.prose > * + * {
+  margin-top: 1.4rem;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--text-1);
+  line-height: 1.25;
+}
+
+.prose h2 {
+  font-size: 1.7rem;
+  margin-top: 3rem;
+}
+
+.prose h3 {
+  font-size: 1.35rem;
+  margin-top: 2.25rem;
+}
+
+.prose h4 {
+  font-size: 1.1rem;
+  margin-top: 1.75rem;
+}
+
+.prose p {
+  color: var(--text-2);
+}
+
+.prose strong {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+.prose a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 212, 255, 0.4);
+  transition: text-decoration-color var(--t-fast);
+}
+
+.prose a:hover {
+  text-decoration-color: var(--cyan);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-top: 0.6rem;
+  padding-left: 0.35rem;
+}
+
+.prose li::marker {
+  color: var(--cyan);
+}
+
+.prose blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid;
+  border-image: var(--grad-main) 1;
+  background: var(--surface);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  color: var(--text-1);
+  font-style: italic;
+}
+
+.prose blockquote p {
+  color: var(--text-1);
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: var(--r-sm);
+  padding: 0.15em 0.4em;
+}
+
+.prose pre {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  color: var(--text-1);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.prose hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3rem 0;
+}
+
+.prose img {
+  max-width: 100%;
+  border-radius: var(--r-lg);
+}
+
+/* ── Focus styles (accessibility) ── */
+.blog-card:focus-visible,
+.blog-chip:focus-visible,
+.post-back:focus-visible,
+.post-cta-btn:focus-visible,
+.prose a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-cta {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .prose {
+    font-size: 1.025rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-card,
+  .post-cta-btn {
+    transition: none;
+  }
+
+  .blog-card:hover,
+  .post-cta-btn:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,38 @@
+---
+import ExperienceLayout from '../layouts/ExperienceLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import WorkPreview from '../components/WorkPreview.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import IdeaBoard from '../components/IdeaBoard.tsx';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import MobileBottomNav from '../components/MobileBottomNav.astro';
+
+// The flagship "Living Growth Engine" homepage. Static markup is pre-rendered;
+// the cinematic layer + interactive islands hydrate on the client.
+export const prerender = true;
+---
+
+<ExperienceLayout>
+  <Navbar />
+  <MobileDrawer />
+  <main>
+    <Hero aurora />
+    <TrustBar />
+    <Services />
+    <Process />
+    <WorkPreview />
+    <Pricing />
+    <Testimonials />
+    <IdeaBoard client:visible />
+    <CTA />
+  </main>
+  <Footer />
+  <MobileBottomNav />
+</ExperienceLayout>

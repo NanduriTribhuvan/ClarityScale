@@ -1,0 +1,85 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import { readingTime } from '../../lib/reading-time';
+import '../../styles/blog.css';
+
+/**
+ * Individual blog post — one pre-rendered page per published entry. The entry
+ * is passed via props from getStaticPaths so the body does no lookups. The
+ * Markdown is compiled with `render()` and dropped into a `.prose` container.
+ */
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((post) => !post.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const minutes = readingTime(post.body ?? '');
+---
+
+<PageLayout title={post.data.title} description={post.data.description} ogType="article">
+  <article class="post">
+    <div class="container post-container">
+      <a class="post-back" href="/blog">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7"></path>
+        </svg>
+        All posts
+      </a>
+
+      <header class="post-hero" data-scroll-reveal>
+        <span class="post-chip">{post.data.category}</span>
+        <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-meta">
+          <span>{post.data.author}</span>
+          <span class="post-dot" aria-hidden="true">·</span>
+          <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+          <span class="post-dot" aria-hidden="true">·</span>
+          <span>{minutes}</span>
+        </p>
+        <div
+          class="post-cover"
+          style={`background-image: linear-gradient(135deg, ${post.data.cover.g1}, ${post.data.cover.g2});`}
+          role="img"
+          aria-label={`${post.data.title} cover artwork`}
+        >
+        </div>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <aside class="post-cta" data-scroll-reveal aria-labelledby="post-cta-title">
+        <h2 id="post-cta-title">Ready to build something that scales?</h2>
+        <p>Tell us where you're headed and we'll map the work that gets you there.</p>
+        <a class="post-cta-btn" href="/#contact">Start the conversation</a>
+      </aside>
+    </div>
+  </article>
+</PageLayout>

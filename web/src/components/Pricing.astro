@@ -1,0 +1,81 @@
+---
+// Pricing — 3 plans + monthly/one-off billing toggle. data-monthly / data-annual
+// hold the two price values the toggle swaps between (annual = one-off project).
+---
+
+<section id="pricing" class="pricing section" aria-label="Pricing">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title" data-cs-title>Transparent, growth-focused <span class="gradient-text">packages</span></h2>
+      <p class="section-sub">No hidden fees. No surprise invoices. Clear, honest pricing that scales with your ambition.</p>
+    </div>
+
+    <div class="pricing-toggle" data-scroll-reveal>
+      <span class="toggle-label">Monthly Retainer</span>
+      <label class="toggle-switch" aria-label="Toggle to one-off project pricing"><input type="checkbox" id="billingToggle" /><span class="toggle-track"></span></label>
+      <span class="toggle-label">One-off Project <span class="save-badge">Best Value</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card" data-scroll-reveal data-delay="0">
+        <div class="plan-name">Starter</div>
+        <div class="plan-desc">Perfect for small businesses and solo entrepreneurs who need a powerful online presence fast.</div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount" data-monthly="499" data-annual="1299">499</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> 5-page website design &amp; build</li>
+          <li><span class="check-icon">✓</span> Mobile responsive &amp; fast</li>
+          <li><span class="check-icon">✓</span> Basic SEO setup</li>
+          <li><span class="check-icon">✓</span> Logo &amp; brand colours</li>
+          <li><span class="check-icon">✓</span> 1 round of revisions</li>
+          <li class="disabled"><span class="check-icon">✗</span> E-commerce functionality</li>
+          <li class="disabled"><span class="check-icon">✗</span> Ongoing marketing support</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card pricing-card-pro" data-scroll-reveal data-delay="100">
+        <div class="pro-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-desc">For growing businesses that need a complete digital presence and ongoing growth partnership.</div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount" data-monthly="1299" data-annual="3499">1,299</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-full">Start Growing</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Up to 15-page website</li>
+          <li><span class="check-icon">✓</span> Full brand identity system</li>
+          <li><span class="check-icon">✓</span> Advanced SEO strategy</li>
+          <li><span class="check-icon">✓</span> Social media management</li>
+          <li><span class="check-icon">✓</span> Monthly performance report</li>
+          <li><span class="check-icon">✓</span> E-commerce ready</li>
+          <li><span class="check-icon">✓</span> Priority support</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card" data-scroll-reveal data-delay="200">
+        <div class="plan-name">Scale</div>
+        <div class="plan-desc">For established businesses that need a dedicated digital team and fully custom-built solutions.</div>
+        <div class="plan-price">
+          <span class="price-custom">Custom</span>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-full">Let's Talk</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Everything in Growth</li>
+          <li><span class="check-icon">✓</span> Custom web applications</li>
+          <li><span class="check-icon">✓</span> Paid ads management</li>
+          <li><span class="check-icon">✓</span> Email marketing campaigns</li>
+          <li><span class="check-icon">✓</span> Dedicated account manager</li>
+          <li><span class="check-icon">✓</span> Quarterly strategy sessions</li>
+          <li><span class="check-icon">✓</span> White-glove onboarding</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

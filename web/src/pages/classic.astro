@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import WorkPreview from '../components/WorkPreview.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+import MobileBottomNav from '../components/MobileBottomNav.astro';
+
+// The clean, proven build — kept reachable as a safe fallback while the
+// homepage hosts the full "Living Growth Engine" experience.
+export const prerender = true;
+---
+
+<BaseLayout>
+  <Navbar />
+  <MobileDrawer />
+  <main>
+    <Hero />
+    <TrustBar />
+    <Services />
+    <Process />
+    <WorkPreview />
+    <Pricing />
+    <Testimonials />
+    <CTA />
+  </main>
+  <Footer />
+  <MobileBottomNav />
+</BaseLayout>

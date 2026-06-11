@@ -1,0 +1,228 @@
+---
+{/*
+  TEMPLATE LEGAL DOCUMENT — NOT LEGAL ADVICE.
+  This Terms of Service is a starting template only. ClarityScale should have
+  qualified legal counsel review and tailor it to the business, jurisdiction,
+  and actual service offerings before relying on it or publishing it as binding.
+*/}
+import PageLayout from '../layouts/PageLayout.astro';
+import '../styles/legal.css';
+
+/**
+ * Terms of Service — styled legal page mirroring the Privacy Policy layout,
+ * with a sticky table-of-contents sidebar on desktop (collapses on mobile).
+ * Pre-rendered: content is fully static.
+ */
+export const prerender = true;
+
+const lastUpdated = 'June 11, 2026';
+
+const sections = [
+  { id: 'acceptance', label: 'Acceptance of Terms' },
+  { id: 'services', label: 'Services Description' },
+  { id: 'client-responsibilities', label: 'Client Responsibilities' },
+  { id: 'intellectual-property', label: 'Intellectual Property' },
+  { id: 'payment-terms', label: 'Payment & Project Terms' },
+  { id: 'warranties', label: 'Warranties & Disclaimers' },
+  { id: 'liability', label: 'Limitation of Liability' },
+  { id: 'termination', label: 'Termination' },
+  { id: 'governing-law', label: 'Governing Law' },
+  { id: 'changes', label: 'Changes to Terms' },
+  { id: 'contact', label: 'Contact' },
+];
+---
+
+<PageLayout
+  title="Terms of Service"
+  description="The terms and conditions that govern your use of ClarityScale's website and services."
+>
+  <section class="legal-page">
+    <div class="legal-shell">
+      <header class="legal-header">
+        <span class="legal-eyebrow">Legal</span>
+        <h1>Terms of <span class="gradient-text">Service</span></h1>
+        <p class="legal-updated">Last updated: {lastUpdated}</p>
+        <p class="legal-intro-note">
+          These Terms of Service govern your access to and use of ClarityScale's website and
+          services. Please read them carefully. By engaging us or using our site, you agree to
+          these terms.
+        </p>
+      </header>
+
+      <div class="legal-grid">
+        <aside class="legal-toc" aria-label="Table of contents">
+          <p class="legal-toc-title">On this page</p>
+          <nav>
+            <ul>
+              {sections.map((s) => (
+                <li><a href={`#${s.id}`}>{s.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        <div class="legal-content">
+          <section id="acceptance" class="legal-section">
+            <h2>Acceptance of Terms</h2>
+            <p>
+              By accessing our website, engaging ClarityScale ("ClarityScale", "we", "us", or
+              "our") for services, or otherwise interacting with us, you ("you" or the "client")
+              agree to be bound by these Terms of Service and our Privacy Policy.
+            </p>
+            <p>
+              If you do not agree with these terms, please do not use our website or services. If
+              you are entering into these terms on behalf of an organisation, you represent that
+              you have authority to bind that organisation.
+            </p>
+          </section>
+
+          <section id="services" class="legal-section">
+            <h2>Services Description</h2>
+            <p>
+              ClarityScale provides digital services that may include website design and
+              development, branding, content, and growth strategy. The specific scope, deliverables,
+              timeline, and fees for any engagement will be set out in a separate proposal,
+              statement of work, or written agreement ("Project Agreement").
+            </p>
+            <p>
+              Where these Terms of Service conflict with a signed Project Agreement, the Project
+              Agreement controls for that engagement.
+            </p>
+          </section>
+
+          <section id="client-responsibilities" class="legal-section">
+            <h2>Client Responsibilities</h2>
+            <p>To help us deliver successfully, you agree to:</p>
+            <ul>
+              <li>Provide accurate, complete, and timely information, content, and materials.</li>
+              <li>Review deliverables and provide feedback within agreed timeframes.</li>
+              <li>
+                Ensure you hold the necessary rights to any materials you supply to us, such as
+                text, images, logos, and trademarks.
+              </li>
+              <li>Designate a point of contact authorised to make decisions and approvals.</li>
+              <li>Use our services and deliverables in compliance with applicable laws.</li>
+            </ul>
+            <p>
+              Delays caused by late feedback or missing materials may affect project timelines and
+              costs.
+            </p>
+          </section>
+
+          <section id="intellectual-property" class="legal-section">
+            <h2>Intellectual Property</h2>
+            <p>
+              Unless a Project Agreement states otherwise, ownership of final deliverables transfers
+              to you upon full payment. Until payment is received in full, all work product remains
+              the property of ClarityScale.
+            </p>
+            <p>
+              We retain ownership of our pre-existing tools, frameworks, templates, and know-how,
+              and any third-party assets remain subject to their own licences. We may display
+              completed work in our portfolio and marketing materials unless you request otherwise
+              in writing.
+            </p>
+          </section>
+
+          <section id="payment-terms" class="legal-section">
+            <h2>Payment &amp; Project Terms</h2>
+            <p>
+              Fees, payment schedules, and milestones are defined in the applicable Project
+              Agreement. Unless otherwise agreed:
+            </p>
+            <ul>
+              <li>A deposit may be required before work begins.</li>
+              <li>Invoices are due within the period stated on the invoice.</li>
+              <li>Late payments may pause work and may incur reasonable late fees.</li>
+              <li>
+                Work outside the agreed scope may be quoted separately as additional fees before
+                being undertaken.
+              </li>
+            </ul>
+            <p>
+              Unless stated otherwise, fees are exclusive of any applicable taxes, which are your
+              responsibility.
+            </p>
+          </section>
+
+          <section id="warranties" class="legal-section">
+            <h2>Warranties &amp; Disclaimers</h2>
+            <p>
+              We perform our services with reasonable skill and care. Except as expressly stated in
+              a Project Agreement, our website and services are provided on an "as is" and "as
+              available" basis without warranties of any kind, whether express or implied,
+              including implied warranties of merchantability, fitness for a particular purpose, and
+              non-infringement.
+            </p>
+            <p>
+              We do not warrant that the website or services will be uninterrupted, error-free, or
+              that specific business results will be achieved.
+            </p>
+          </section>
+
+          <section id="liability" class="legal-section">
+            <h2>Limitation of Liability</h2>
+            <p>
+              To the maximum extent permitted by law, ClarityScale will not be liable for any
+              indirect, incidental, special, consequential, or punitive damages, or for any loss of
+              profits, revenue, data, or goodwill arising from or related to your use of our website
+              or services.
+            </p>
+            <p>
+              Our total aggregate liability for any claim arising out of an engagement will not
+              exceed the total amount you paid to us for the services giving rise to the claim.
+            </p>
+          </section>
+
+          <section id="termination" class="legal-section">
+            <h2>Termination</h2>
+            <p>
+              Either party may terminate an engagement as set out in the applicable Project
+              Agreement, or, where none specifies otherwise, with reasonable written notice.
+            </p>
+            <p>
+              On termination, you agree to pay for all work performed and expenses incurred up to
+              the termination date. Provisions that by their nature should survive termination —
+              including intellectual property, payment obligations, disclaimers, and limitation of
+              liability — will continue to apply.
+            </p>
+          </section>
+
+          <section id="governing-law" class="legal-section">
+            <h2>Governing Law</h2>
+            <p>
+              These Terms of Service are governed by and construed in accordance with the laws of
+              the jurisdiction in which ClarityScale operates, without regard to conflict of law
+              principles. Any disputes will be subject to the courts of that jurisdiction, unless a
+              Project Agreement provides otherwise.
+            </p>
+          </section>
+
+          <section id="changes" class="legal-section">
+            <h2>Changes to Terms</h2>
+            <p>
+              We may update these Terms of Service from time to time. When we do, we will revise the
+              "Last updated" date at the top of this page. Your continued use of our website or
+              services after changes take effect constitutes acceptance of the revised terms.
+            </p>
+          </section>
+
+          <section id="contact" class="legal-section">
+            <h2>Contact</h2>
+            <p>If you have questions about these Terms of Service, you can reach us at:</p>
+            <div class="legal-contact-card">
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:contact.clarityscale@gmail.com">contact.clarityscale@gmail.com</a>
+              </p>
+              <p>
+                <strong>Instagram:</strong>
+                <a href="https://instagram.com/clarityscale" target="_blank" rel="noopener noreferrer">@clarityscale</a>
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,19 @@
+/**
+ * Aurora canvas background styles.
+ *
+ * The canvas is an absolutely-positioned, non-interactive layer that sits
+ * behind the hero content. Sizing is handled in JS (devicePixelRatio aware);
+ * here we only pin it to its parent and keep it out of the pointer/focus flow.
+ */
+.aurora-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Sit behind hero content but above the section background. */
+  z-index: 0;
+  /* Purely decorative — never intercept clicks, scrolls, or focus. */
+  pointer-events: none;
+  /* Smooth scaling of the bitmap between resize reflows. */
+  display: block;
+}

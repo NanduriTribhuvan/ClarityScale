@@ -1,0 +1,71 @@
+---
+import Navbar from '../components/Navbar.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import Footer from '../components/Footer.astro';
+import MobileBottomNav from '../components/MobileBottomNav.astro';
+import Animations from '../components/Animations.tsx';
+
+import '../styles/global.css';
+import '../styles/experience.css';
+import '../styles/additions.css';
+
+/**
+ * Shared shell for interior pages (work, blog, legal). Lighter than the
+ * homepage ExperienceLayout — no cinematic intro — but keeps the navbar,
+ * footer (with contact form), and baseline scroll/nav behaviour. Nav links
+ * resolve back to homepage sections via linkBase="/".
+ */
+interface Props {
+  title: string;
+  description?: string;
+  /** Optional canonical override; defaults to the current path. */
+  ogType?: string;
+}
+
+const {
+  title,
+  description = 'ClarityScale — a digital growth hub building websites, brands, and strategies that scale businesses smarter and faster.',
+  ogType = 'website',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const pageTitle = title.includes('ClarityScale') ? title : `${title} · ClarityScale`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#030309" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <Navbar linkBase="/" />
+    <MobileDrawer linkBase="/" />
+
+    <main class="page-main">
+      <slot />
+    </main>
+
+    <Footer />
+    <MobileBottomNav linkBase="/" />
+
+    <Animations client:idle />
+  </body>
+</html>

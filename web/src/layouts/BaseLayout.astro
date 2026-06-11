@@ -1,0 +1,63 @@
+---
+import ExperienceLayer from '../components/ExperienceLayer.astro';
+import Animations from '../components/Animations.tsx';
+
+// Global design system + motion layer. Order matters: base first, then the
+// additive experience layer, then net-new additions (contact form + a11y).
+import '../styles/global.css';
+import '../styles/experience.css';
+import '../styles/additions.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ClarityScale — Digital Growth Hub',
+  description = 'ClarityScale is a digital growth hub that guides businesses to scale smarter and faster through world-class web development, branding, and digital strategy.',
+} = Astro.props;
+
+const ogDescription =
+  'We build websites, brands, and digital strategies that scale businesses smarter and faster.';
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#030309" />
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph */}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+
+    {/* Fonts: Syne (display) + DM Sans (body) */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <ExperienceLayer />
+
+    <slot />
+
+    {/*
+      Animation island. Renders nothing; on idle (after first paint) it imports
+      GSAP from npm and wires up every entrance/scroll/micro-interaction on the
+      pre-rendered DOM. Only this + the contact form hydrate — the page is never
+      hydrated wholesale.
+    */}
+    <Animations client:idle />
+  </body>
+</html>

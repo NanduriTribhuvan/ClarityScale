@@ -1,0 +1,173 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { PROJECTS, type Project } from '../../data/projects';
+import '../../styles/work.css';
+
+/**
+ * Full case study — one pre-rendered page per project. The whole project (plus
+ * its wrap-around prev/next neighbours) is passed via props from
+ * getStaticPaths so the page body does no lookups.
+ */
+export const prerender = true;
+
+export function getStaticPaths() {
+  const count = PROJECTS.length;
+  return PROJECTS.map((project, i) => {
+    // Wrap around the array; guard every index access for strict TS.
+    const prev = PROJECTS[(i - 1 + count) % count] ?? project;
+    const next = PROJECTS[(i + 1) % count] ?? project;
+    return {
+      params: { slug: project.slug },
+      props: { project, prev, next },
+    };
+  });
+}
+
+interface Props {
+  project: Project;
+  prev: Project;
+  next: Project;
+}
+
+const { project, prev, next } = Astro.props;
+const pageDescription = `${project.title} — ${project.summary}`;
+---
+
+<PageLayout title={`${project.title} · Case Study`} description={pageDescription} ogType="article">
+  <article class="cs">
+    <div class="container">
+      <a class="cs-back" href="/work">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        All work
+      </a>
+
+      <!-- Hero -->
+      <header class="cs-hero" data-scroll-reveal>
+        <span class="cs-hero-chip">{project.category}</span>
+        <h1 class="cs-hero-title">{project.title}</h1>
+        <p class="cs-hero-meta">{project.client} · {project.year}</p>
+        <span class="cs-hero-metric">{project.metric}</span>
+        <ul class="cs-hero-services" aria-label="Services delivered">
+          {project.services.map((s) => <li class="cs-service-chip">{s}</li>)}
+        </ul>
+        <div
+          class="cs-cover"
+          style={`--g1:${project.g1};--g2:${project.g2}`}
+          role="img"
+          aria-label={`${project.title} cover artwork`}
+        >
+        </div>
+      </header>
+
+      <!-- The Challenge -->
+      <section class="cs-section" data-scroll-reveal aria-labelledby="cs-challenge-title">
+        <span class="cs-section-tag">The Challenge</span>
+        <h2 class="cs-section-title" id="cs-challenge-title">Where they started</h2>
+        <p class="cs-prose">{project.challenge}</p>
+      </section>
+
+      <!-- Our Approach -->
+      <section class="cs-section" data-scroll-reveal aria-labelledby="cs-approach-title">
+        <span class="cs-section-tag">Our Approach</span>
+        <h2 class="cs-section-title" id="cs-approach-title">How we got there</h2>
+        <ol class="cs-approach">
+          {
+            project.approach.map((step, i) => (
+              <li>
+                <span class="cs-approach-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <span class="cs-approach-text">{step}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <!-- Results -->
+      <section class="cs-section" data-scroll-reveal aria-labelledby="cs-results-title">
+        <span class="cs-section-tag">Results</span>
+        <h2 class="cs-section-title" id="cs-results-title">The outcome</h2>
+        <div class="cs-results">
+          {
+            project.results.map((r) => (
+              <div class="cs-result">
+                <div class="cs-result-value">{r.value}</div>
+                <div class="cs-result-label">{r.label}</div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Before / After -->
+      <section class="cs-section" data-scroll-reveal aria-labelledby="cs-ba-title">
+        <span class="cs-section-tag">Before / After</span>
+        <h2 class="cs-section-title" id="cs-ba-title">What changed</h2>
+        <div class="cs-ba">
+          <div class="cs-ba-row cs-ba-head" aria-hidden="true">
+            <span class="cs-ba-metric">Metric</span>
+            <span class="cs-ba-before">Before</span>
+            <span class="cs-ba-arrow"></span>
+            <span class="cs-ba-after">After</span>
+          </div>
+          {
+            project.beforeAfter.map((b) => (
+              <div class="cs-ba-row">
+                <span class="cs-ba-metric">{b.metric}</span>
+                <span class="cs-ba-before">{b.before}</span>
+                <span class="cs-ba-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+                <span class="cs-ba-after">{b.after}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section class="cs-section" data-scroll-reveal aria-labelledby="cs-gallery-title">
+        <span class="cs-section-tag">Gallery</span>
+        <h2 class="cs-section-title" id="cs-gallery-title">A closer look</h2>
+        <div class="cs-gallery">
+          {
+            project.gallery.map((g) => (
+              <figure class={`cs-gallery-item${g.wide ? ' is-wide' : ''}`}>
+                <div
+                  class="cs-gallery-panel"
+                  style={`--g1:${g.g1};--g2:${g.g2}`}
+                  role="img"
+                  aria-label={g.caption}
+                >
+                  <figcaption class="cs-gallery-caption">{g.caption}</figcaption>
+                </div>
+              </figure>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Closing CTA -->
+      <section class="cs-cta" data-scroll-reveal aria-labelledby="cs-cta-title">
+        <h2 id="cs-cta-title">Want results like these?</h2>
+        <p>Tell us where you're headed and we'll map the build that gets you there.</p>
+        <a class="btn btn-primary btn-lg" href="/#contact">Start a project like this</a>
+      </section>
+
+      <!-- Prev / next -->
+      <nav class="cs-nav" aria-label="More case studies">
+        <a class="cs-nav-link cs-nav-prev" href={`/work/${prev.slug}`}>
+          <span class="cs-nav-dir">← Previous</span>
+          <span class="cs-nav-title">{prev.title}</span>
+        </a>
+        <a class="cs-nav-link cs-nav-next" href={`/work/${next.slug}`}>
+          <span class="cs-nav-dir">Next →</span>
+          <span class="cs-nav-title">{next.title}</span>
+        </a>
+      </nav>
+    </div>
+  </article>
+</PageLayout>

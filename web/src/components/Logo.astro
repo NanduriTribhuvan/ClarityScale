@@ -1,0 +1,247 @@
+---
+/**
+ * Reusable ClarityScale diamond logo.
+ *
+ * Used by the navbar, CTA, footer, and the work-preview dashboard. Each
+ * instance gets a unique id prefix so the inline <defs> gradients/clips
+ * never collide when several logos render on the same page. SVGs are
+ * inlined (no CDN / external asset) per the performance requirement.
+ */
+interface Props {
+  variant: 'nav' | 'cta' | 'footer' | 'dashboard';
+  size?: number;
+  class?: string;
+}
+
+const { variant, size, class: className } = Astro.props;
+
+const defaultSize: Record<Props['variant'], number> = {
+  nav: 36,
+  cta: 64,
+  footer: 32,
+  dashboard: 22,
+};
+const s = size ?? defaultSize[variant];
+
+// Unique-per-instance id prefix (build-time render → stable + collision-free).
+const uid = `lg${Math.random().toString(36).slice(2, 9)}`;
+---
+
+{
+  variant === 'nav' && (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 200"
+      width={s}
+      height={s}
+      class={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <radialGradient id={`${uid}-bg`} cx="50%" cy="55%" r="48%">
+          <stop offset="0%" stop-color="#1a0a2e" />
+          <stop offset="100%" stop-color="#000" />
+        </radialGradient>
+        <clipPath id={`${uid}-clip`}>
+          <polygon points="100,18 178,95 100,172 22,95" />
+        </clipPath>
+        <linearGradient id={`${uid}-rl`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00d4ff" />
+          <stop offset="40%" stop-color="#2979ff" />
+          <stop offset="100%" stop-color="#7c13c8" />
+        </linearGradient>
+        <linearGradient id={`${uid}-rr`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#8b19d6" />
+          <stop offset="50%" stop-color="#d41fb0" />
+          <stop offset="100%" stop-color="#ff6a00" />
+        </linearGradient>
+        <linearGradient id={`${uid}-gl`} x1="30%" y1="0%" x2="70%" y2="100%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.22)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
+        <filter id={`${uid}-sg`} x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="2.5" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect width="200" height="200" fill={`url(#${uid}-bg)`} />
+      <g clip-path={`url(#${uid}-clip)`}>
+        <polygon points="100,18 178,95 100,172 22,95" fill="#050010" />
+        <path
+          d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z"
+          fill={`url(#${uid}-rl)`}
+          opacity="0.95"
+        />
+        <path
+          d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z"
+          fill={`url(#${uid}-rr)`}
+          opacity="0.95"
+        />
+        <polygon points="100,18 178,95 100,172 22,95" fill={`url(#${uid}-gl)`} opacity="0.7" />
+      </g>
+      <polygon
+        points="100,18 178,95 100,172 22,95"
+        fill="none"
+        stroke="rgba(255,255,255,0.1)"
+        stroke-width="1"
+      />
+      <g filter={`url(#${uid}-sg)`} transform="translate(100,20)">
+        <circle r="2.5" fill="white" />
+        <line x1="0" y1="-9" x2="0" y2="9" stroke="white" stroke-width="0.8" stroke-linecap="round" />
+        <line x1="-9" y1="0" x2="9" y2="0" stroke="white" stroke-width="0.8" stroke-linecap="round" />
+      </g>
+    </svg>
+  )
+}
+
+{
+  variant === 'cta' && (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 200"
+      width={s}
+      height={s}
+      class={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <clipPath id={`${uid}-clip`}>
+          <polygon points="100,18 178,95 100,172 22,95" />
+        </clipPath>
+        <linearGradient id={`${uid}-l`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00d4ff" />
+          <stop offset="100%" stop-color="#7c13c8" />
+        </linearGradient>
+        <linearGradient id={`${uid}-r`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#8b19d6" />
+          <stop offset="100%" stop-color="#ff6a00" />
+        </linearGradient>
+        <linearGradient id={`${uid}-g`} x1="30%" y1="0%" x2="70%" y2="100%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.22)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
+        <filter id={`${uid}-f`} x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="3" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect width="200" height="200" fill="#050010" />
+      <g clip-path={`url(#${uid}-clip)`}>
+        <polygon points="100,18 178,95 100,172 22,95" fill="#050010" />
+        <path
+          d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z"
+          fill={`url(#${uid}-l)`}
+        />
+        <path
+          d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z"
+          fill={`url(#${uid}-r)`}
+        />
+        <polygon points="100,18 178,95 100,172 22,95" fill={`url(#${uid}-g)`} opacity="0.7" />
+      </g>
+      <polygon
+        points="100,18 178,95 100,172 22,95"
+        fill="none"
+        stroke="rgba(255,255,255,0.12)"
+        stroke-width="1"
+      />
+      <g filter={`url(#${uid}-f)`} transform="translate(100,20)">
+        <circle r="3" fill="white" />
+        <line x1="0" y1="-12" x2="0" y2="12" stroke="white" stroke-width="1" stroke-linecap="round" />
+        <line x1="-12" y1="0" x2="12" y2="0" stroke="white" stroke-width="1" stroke-linecap="round" />
+      </g>
+    </svg>
+  )
+}
+
+{
+  variant === 'footer' && (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 200 200"
+      width={s}
+      height={s}
+      class={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <clipPath id={`${uid}-clip`}>
+          <polygon points="100,18 178,95 100,172 22,95" />
+        </clipPath>
+        <linearGradient id={`${uid}-l`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00d4ff" />
+          <stop offset="100%" stop-color="#7c13c8" />
+        </linearGradient>
+        <linearGradient id={`${uid}-r`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#8b19d6" />
+          <stop offset="100%" stop-color="#ff6a00" />
+        </linearGradient>
+        <linearGradient id={`${uid}-g`} x1="30%" y1="0%" x2="70%" y2="100%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.22)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
+      </defs>
+      <rect width="200" height="200" fill="#050010" />
+      <g clip-path={`url(#${uid}-clip)`}>
+        <path
+          d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z"
+          fill={`url(#${uid}-l)`}
+        />
+        <path
+          d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z"
+          fill={`url(#${uid}-r)`}
+        />
+        <polygon points="100,18 178,95 100,172 22,95" fill={`url(#${uid}-g)`} opacity="0.7" />
+      </g>
+      <polygon
+        points="100,18 178,95 100,172 22,95"
+        fill="none"
+        stroke="rgba(255,255,255,0.1)"
+        stroke-width="1"
+      />
+    </svg>
+  )
+}
+
+{
+  variant === 'dashboard' && (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 40 40"
+      width={s}
+      height={s}
+      class={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <clipPath id={`${uid}-clip`}>
+          <polygon points="20,3 36,19 20,35 4,19" />
+        </clipPath>
+        <linearGradient id={`${uid}-l`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00d4ff" />
+          <stop offset="100%" stop-color="#7c13c8" />
+        </linearGradient>
+        <linearGradient id={`${uid}-r`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#8b19d6" />
+          <stop offset="100%" stop-color="#ff6a00" />
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" fill="#050010" />
+      <g clip-path={`url(#${uid}-clip)`}>
+        <path
+          d="M4,7 C8,4 16,3 18,12 C20,21 16,27 13,32 L17,33 C20,28 24,22 22,13 C20,4 11,2 6,5Z"
+          fill={`url(#${uid}-l)`}
+        />
+        <path
+          d="M15,3 C19,2 26,4 28,11 C30,18 27,25 24,30 L28,30 C31,24 33,16 30,9 C27,2 19,1 14,4Z"
+          fill={`url(#${uid}-r)`}
+        />
+      </g>
+    </svg>
+  )
+}

@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import { readingTime } from '../../lib/reading-time';
+import '../../styles/blog.css';
+
+/**
+ * Blog index — a responsive grid of every published post. Pre-rendered: the
+ * content collection is static at build time. Posts are filtered to exclude
+ * drafts and sorted newest-first. Category filter chips are derived from the
+ * posts themselves and toggle card visibility client-side.
+ */
+export const prerender = true;
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Unique categories, in first-seen order, for the filter chips.
+const categories = [...new Set(posts.map((post) => post.data.category))];
+
+const dateFormat: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+};
+---
+
+<PageLayout
+  title="Blog"
+  description="Insights and ideas from ClarityScale on growth, SEO, branding, and building digital systems that scale."
+>
+  <div class="blog-page">
+    <div class="container">
+      <header class="blog-header" data-scroll-reveal>
+        <span class="section-tag">Journal</span>
+        <h1 class="section-title">
+          <span class="gradient-text">Insights &amp; ideas</span>
+        </h1>
+        <p class="blog-header-sub">
+          Field notes on growth, search, and brand — the durable kind of thinking we use to build
+          things that scale.
+        </p>
+      </header>
+
+      {
+        categories.length > 1 && (
+          <div class="blog-filters" role="group" aria-label="Filter posts by category">
+            <button type="button" class="blog-chip is-active" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            {categories.map((category) => (
+              <button type="button" class="blog-chip" data-filter={category} aria-pressed="false">
+                {category}
+              </button>
+            ))}
+          </div>
+        )
+      }
+
+      <div class="blog-grid">
+        {
+          posts.map((post) => (
+            <a
+              class="blog-card"
+              href={`/blog/${post.id}`}
+              data-category={post.data.category}
+              data-scroll-reveal
+              aria-label={`${post.data.title} — ${post.data.category}`}
+            >
+              <div
+                class="blog-card-cover"
+                style={`background-image: linear-gradient(135deg, ${post.data.cover.g1}, ${post.data.cover.g2});`}
+                aria-hidden="true"
+              >
+                <span class="blog-card-sheen" aria-hidden="true" />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-card-chip">{post.data.category}</span>
+                <h2 class="blog-card-title">{post.data.title}</h2>
+                <p class="blog-card-desc">{post.data.description}</p>
+                <div class="blog-card-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', dateFormat)}
+                  </time>
+                  <span class="blog-card-dot" aria-hidden="true">
+                    ·
+                  </span>
+                  <span>{readingTime(post.body ?? '')}</span>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <p class="blog-empty" data-empty hidden>No posts in this category yet.</p>
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  // Category filtering — robust to missing nodes and re-runs on view transitions.
+  function initBlogFilters() {
+    const chips = Array.from(
+      document.querySelectorAll<HTMLButtonElement>('.blog-chip')
+    );
+    const cards = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('.blog-card')
+    );
+    const empty = document.querySelector<HTMLElement>('[data-empty]');
+    if (chips.length === 0 || cards.length === 0) return;
+
+    function apply(filter: string) {
+      let visible = 0;
+      for (const card of cards) {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.hidden = !match;
+        if (match) visible++;
+      }
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        for (const other of chips) {
+          const isActive = other === chip;
+          other.classList.toggle('is-active', isActive);
+          other.setAttribute('aria-pressed', String(isActive));
+        }
+        apply(chip.dataset.filter ?? 'all');
+      });
+    }
+  }
+
+  initBlogFilters();
+  document.addEventListener('astro:page-load', initBlogFilters);
+</script>

@@ -1,0 +1,24 @@
+---
+// Mobile navigation drawer + dimming overlay (toggled by the navbar hamburger).
+interface Props {
+  /** Prefix for in-page anchors — "" on homepage, "/" on sub-pages. */
+  linkBase?: string;
+}
+const { linkBase = '' } = Astro.props;
+---
+
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <ul role="list">
+    <li><a href={`${linkBase}#home`} class="mobile-link">Home</a></li>
+    <li><a href={`${linkBase}#services`} class="mobile-link">Services</a></li>
+    <li><a href={`${linkBase}#how-it-works`} class="mobile-link">Process</a></li>
+    <li><a href={`${linkBase}#pricing`} class="mobile-link">Pricing</a></li>
+    <li><a href="/work" class="mobile-link">Work</a></li>
+    <li><a href="/blog" class="mobile-link">Blog</a></li>
+    <li><a href={`${linkBase}#contact`} class="mobile-link">Contact</a></li>
+  </ul>
+  <div class="mobile-drawer-cta">
+    <a href={`${linkBase}#contact`} class="btn btn-primary btn-full">Start a Project</a>
+  </div>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>

@@ -1,0 +1,55 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { PROJECTS } from '../../data/projects';
+import '../../styles/work.css';
+
+/**
+ * Work index — a masonry-ish grid of every case study. Each card links to its
+ * `/work/{slug}` page and uses the project's own gradient stops for its cover.
+ * Pre-rendered: the data is static and shared with the Idea Board.
+ */
+export const prerender = true;
+---
+
+<PageLayout
+  title="Our Work"
+  description="Case studies from ClarityScale — websites, brands and growth strategies built to scale. Explore the results."
+>
+  <div class="work-page">
+    <div class="container">
+      <header class="work-header" data-scroll-reveal>
+        <span class="section-tag">Portfolio</span>
+        <h1 class="section-title">
+          Work that <span class="gradient-text">moves the metric</span>
+        </h1>
+        <p class="work-header-sub">
+          Real projects, real outcomes. Every build pairs craft with measurable growth — explore
+          the case studies behind the numbers.
+        </p>
+      </header>
+
+      <div class="work-grid">
+        {
+          PROJECTS.map((p) => (
+            <a
+              class="work-card"
+              href={`/work/${p.slug}`}
+              aria-label={`${p.title} case study — ${p.category}, ${p.metric}`}
+              data-scroll-reveal
+            >
+              <div class="work-card-cover" style={`--g1:${p.g1};--g2:${p.g2}`}>
+                <span class="work-card-sheen" aria-hidden="true" />
+                <span class="work-card-chip">{p.category}</span>
+              </div>
+              <div class="work-card-body">
+                <h2 class="work-card-title">{p.title}</h2>
+                <span class="work-card-metric">{p.metric}</span>
+                <p class="work-card-summary">{p.summary}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</PageLayout>

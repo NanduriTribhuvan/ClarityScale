@@ -1,0 +1,78 @@
+---
+import Logo from './Logo.astro';
+// Work-preview "MacBook" dashboard mockup. Chart bars, service fills, and KPI
+// values are animated by the island when the frame enters the viewport.
+---
+
+<section id="dashboard" class="dashboard-section section" aria-label="Our work preview">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title" data-cs-title>Built with <span class="gradient-text">purpose and precision</span></h2>
+      <p class="section-sub">Every project we deliver is crafted to perform — not just look good. Here's a snapshot of what we build.</p>
+    </div>
+
+    <div class="dashboard-frame" data-scroll-reveal>
+      <div class="macbook-chrome">
+        <div class="macbook-top">
+          <div class="mac-dots"><span class="mac-dot dot-red"></span><span class="mac-dot dot-yellow"></span><span class="mac-dot dot-green"></span></div>
+          <div class="mac-url-bar">client-project.clarityscale.io</div>
+          <div class="mac-icons"><span></span><span></span></div>
+        </div>
+        <div class="dashboard-ui">
+          <div class="dash-sidebar">
+            <div class="dash-logo-mini"><Logo variant="dashboard" /></div>
+            <nav class="dash-nav">
+              <div class="dash-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg><span>Projects</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"></path><path d="M7 16l4-4 4 4 4-8"></path></svg><span>Results</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path></svg><span>Live Sites</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><span>Clients</span></div>
+            </nav>
+          </div>
+          <div class="dash-main">
+            <div class="dash-header-row">
+              <div><div class="dash-title">Active Projects</div><div class="dash-subtitle">4 in progress · Updated just now</div></div>
+              <div class="dash-header-actions"><span class="dash-btn">View All</span><span class="dash-btn dash-btn-accent">+ New Brief</span></div>
+            </div>
+            <div class="dash-kpi-row">
+              <div class="dash-kpi"><div class="kpi-label">Sites Live</div><div class="kpi-value">52</div><div class="kpi-delta up">▲ 8 this quarter</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Avg. Delivery</div><div class="kpi-value">12d</div><div class="kpi-delta up">▲ 20% faster</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Satisfaction</div><div class="kpi-value">100%</div><div class="kpi-delta up">▲ All time</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Avg. Traffic</div><div class="kpi-value">+340%</div><div class="kpi-delta up">▲ Post-launch</div></div>
+            </div>
+            <div class="dash-chart-area">
+              <div class="dash-chart-title">Projects delivered per month</div>
+              <div class="dash-chart">
+                <div class="chart-bars">
+                  <div class="chart-bar" style="--h:55%"><span>Jan</span></div>
+                  <div class="chart-bar" style="--h:65%"><span>Feb</span></div>
+                  <div class="chart-bar" style="--h:60%"><span>Mar</span></div>
+                  <div class="chart-bar" style="--h:78%"><span>Apr</span></div>
+                  <div class="chart-bar" style="--h:70%"><span>May</span></div>
+                  <div class="chart-bar chart-bar-active" style="--h:92%"><span>Jun</span></div>
+                  <div class="chart-bar" style="--h:85%"><span>Jul</span></div>
+                  <div class="chart-bar" style="--h:95%"><span>Aug</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-bottom-row">
+              <div class="dash-recent">
+                <div class="dash-section-title">Recent Milestones</div>
+                <div class="ai-rec"><span class="ai-dot"></span><span>NovaBrew e-commerce store — launched &amp; live</span></div>
+                <div class="ai-rec"><span class="ai-dot ai-dot-warn"></span><span>PeakFit brand identity — final review stage</span></div>
+                <div class="ai-rec"><span class="ai-dot ai-dot-info"></span><span>Luxe Realty SEO — organic traffic up 340%</span></div>
+              </div>
+              <div class="dash-activity">
+                <div class="dash-section-title">Service Breakdown</div>
+                <div class="source-item"><span class="source-name">Web Dev</span><div class="source-bar"><div class="source-fill" style="width:88%"></div></div><span class="source-pct">88%</span></div>
+                <div class="source-item"><span class="source-name">Branding</span><div class="source-bar"><div class="source-fill" style="width:72%"></div></div><span class="source-pct">72%</span></div>
+                <div class="source-item"><span class="source-name">SEO</span><div class="source-bar"><div class="source-fill" style="width:55%"></div></div><span class="source-pct">55%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-glow" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>

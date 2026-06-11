@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+
+interface Props {
+  /** Prefix for in-page anchors. "" on the homepage, "/" on interior pages
+   *  so links resolve back to the homepage sections (e.g. "/#services"). */
+  linkBase?: string;
+}
+const { linkBase = '' } = Astro.props;
+---
+
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href={`${linkBase}#home`} class="nav-logo" aria-label="ClarityScale home">
+      <span class="logo-icon"><Logo variant="nav" /></span>
+      <span class="logo-text">ClarityScale</span>
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href={`${linkBase}#home`} class="nav-link active">Home</a></li>
+      <li><a href={`${linkBase}#services`} class="nav-link">Services</a></li>
+      <li><a href={`${linkBase}#how-it-works`} class="nav-link">Process</a></li>
+      <li><a href={`${linkBase}#pricing`} class="nav-link">Pricing</a></li>
+      <li><a href="/work" class="nav-link">Work</a></li>
+      <li><a href="/blog" class="nav-link">Blog</a></li>
+      <li><a href={`${linkBase}#contact`} class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href={`${linkBase}#contact`} class="btn btn-ghost btn-sm">Say Hello</a>
+      <a href={`${linkBase}#contact`} class="btn btn-primary btn-sm">Start a Project</a>
+    </div>
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobileDrawer"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

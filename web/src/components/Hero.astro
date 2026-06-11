@@ -1,0 +1,103 @@
+---
+// Hero section. The detailed hero logo SVG is unique to this section (large,
+// floating, with KPI cards) so it stays inline rather than using <Logo />.
+import AuroraCanvas from './AuroraCanvas.tsx';
+
+interface Props {
+  /** When true, mount the reactive aurora canvas behind the hero (experience page). */
+  aurora?: boolean;
+}
+const { aurora = false } = Astro.props;
+---
+
+<section id="home" class="hero" aria-label="Hero">
+  {aurora && <AuroraCanvas client:idle />}
+  <div class="cs-aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="dot-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content" data-animate="hero">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Digital Growth Hub
+      </div>
+      <h1 class="hero-headline">
+        Scale Smarter.<br />
+        <span class="gradient-text">Grow Faster.</span>
+      </h1>
+      <p class="hero-sub">
+        ClarityScale is your end-to-end digital growth partner. We build high-performance websites,
+        bold brands, and custom digital strategies that drive real, measurable results.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Start Your Project
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"></circle><path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"></path></svg>
+          Our Services
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-value">50+</span><span class="stat-label">Projects Launched</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">100%</span><span class="stat-label">Client Satisfaction</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">3x</span><span class="stat-label">Avg. Growth</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">Fast</span><span class="stat-label">Turnaround</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="hero-logo-svg">
+          <defs>
+            <radialGradient id="h-bg" cx="50%" cy="55%" r="45%"><stop offset="0%" stop-color="#1a0a2e"></stop><stop offset="100%" stop-color="#000000"></stop></radialGradient>
+            <clipPath id="h-clip"><polygon points="500,100 880,480 500,860 120,480"></polygon></clipPath>
+            <linearGradient id="h-rl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"></stop><stop offset="30%" stop-color="#2979ff"></stop><stop offset="70%" stop-color="#6a1de0"></stop><stop offset="100%" stop-color="#7c13c8"></stop></linearGradient>
+            <linearGradient id="h-rr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"></stop><stop offset="35%" stop-color="#d41fb0"></stop><stop offset="70%" stop-color="#f0446a"></stop><stop offset="100%" stop-color="#ff6a00"></stop></linearGradient>
+            <linearGradient id="h-gl" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.25)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0.04)"></stop><stop offset="100%" stop-color="rgba(255,255,255,0)"></stop></linearGradient>
+            <radialGradient id="h-is" cx="50%" cy="50%" r="50%"><stop offset="60%" stop-color="rgba(0,0,0,0)"></stop><stop offset="100%" stop-color="rgba(0,0,0,0.6)"></stop></radialGradient>
+            <filter id="h-sg" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="7" result="b1"></feGaussianBlur><feGaussianBlur stdDeviation="2.5" result="b2"></feGaussianBlur><feMerge><feMergeNode in="b1"></feMergeNode><feMergeNode in="b2"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+            <filter id="h-bg2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+            <radialGradient id="h-rf" cx="50%" cy="0%" r="60%"><stop offset="0%" stop-color="rgba(200,180,255,0.55)"></stop><stop offset="100%" stop-color="rgba(200,180,255,0)"></stop></radialGradient>
+          </defs>
+          <rect width="1000" height="1000" fill="url(#h-bg)"></rect>
+          <polygon points="500,100 880,480 500,860 120,480" fill="none" stroke="#2979ff" stroke-width="2.5" opacity="0.5" filter="url(#h-bg2)"></polygon>
+          <g clip-path="url(#h-clip)">
+            <polygon points="500,100 880,480 500,860 120,480" fill="#050010"></polygon>
+            <path d="M 205,270 C 290,210 420,200 460,320 C 500,440 430,540 370,620 C 310,700 260,740 230,790 L 330,800 C 355,750 410,710 470,640 C 530,570 605,460 575,330 C 545,200 410,140 300,160 L 205,270 Z" fill="url(#h-rl)" opacity="0.95"></path>
+            <path d="M 205,270 C 255,230 330,210 370,240 C 330,215 255,235 210,278 Z" fill="rgba(180,230,255,0.55)"></path>
+            <path d="M 390,150 C 460,130 590,160 640,270 C 690,380 650,480 600,570 C 550,660 490,720 470,800 L 580,800 C 600,720 660,650 710,550 C 760,450 790,330 740,210 C 690,90 540,85 430,140 L 390,150 Z" fill="url(#h-rr)" opacity="0.95"></path>
+            <path d="M 430,140 C 510,120 620,155 650,240 C 615,150 510,125 435,148 Z" fill="rgba(255,200,240,0.4)"></path>
+            <polygon points="500,100 880,480 500,860 120,480" fill="url(#h-gl)" opacity="0.7"></polygon>
+            <polygon points="500,100 880,480 500,860 120,480" fill="url(#h-is)"></polygon>
+          </g>
+          <polygon points="500,100 880,480 500,860 120,480" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"></polygon>
+          <g filter="url(#h-sg)" transform="translate(500,103)"><circle r="5" fill="white"></circle><line x1="0" y1="-28" x2="0" y2="28" stroke="white" stroke-width="1.8" stroke-linecap="round"></line><line x1="-28" y1="0" x2="28" y2="0" stroke="white" stroke-width="1.8" stroke-linecap="round"></line><line x1="-16" y1="-16" x2="16" y2="16" stroke="white" stroke-width="0.9" stroke-linecap="round" opacity="0.55"></line><line x1="16" y1="-16" x2="-16" y2="16" stroke="white" stroke-width="0.9" stroke-linecap="round" opacity="0.55"></line></g>
+          <g filter="url(#h-sg)" transform="translate(500,857)"><circle r="5" fill="white"></circle><line x1="0" y1="-26" x2="0" y2="26" stroke="white" stroke-width="1.8" stroke-linecap="round"></line><line x1="-26" y1="0" x2="26" y2="0" stroke="white" stroke-width="1.8" stroke-linecap="round"></line></g>
+          <ellipse cx="500" cy="895" rx="160" ry="18" fill="url(#h-rf)"></ellipse>
+          <ellipse cx="500" cy="892" rx="22" ry="4" fill="rgba(255,255,255,0.65)"></ellipse>
+        </svg>
+        <div class="float-card float-card-1">
+          <div class="float-card-icon">🚀</div>
+          <div class="float-card-info"><span class="float-card-val">Launched</span><span class="float-card-lbl">New website live</span></div>
+        </div>
+        <div class="float-card float-card-2">
+          <div class="float-card-icon">📈</div>
+          <div class="float-card-info"><span class="float-card-val">+340%</span><span class="float-card-lbl">Organic traffic</span></div>
+        </div>
+        <div class="float-card float-card-3">
+          <div class="float-card-icon">✨</div>
+          <div class="float-card-info"><span class="float-card-val">Brand Ready</span><span class="float-card-lbl">Identity delivered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><div class="scroll-line"></div></div>
+</section>
