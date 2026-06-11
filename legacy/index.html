@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClarityScale — Digital Growth Hub</title>
+  <meta name="description" content="ClarityScale is a digital growth hub that guides businesses to scale smarter and faster through world-class web development, branding, and digital strategy." />
+  <meta name="theme-color" content="#030309" />
+  <meta property="og:title" content="ClarityScale — Digital Growth Hub" />
+  <meta property="og:description" content="We build websites, brands, and digital strategies that scale businesses smarter and faster." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="experience.css" />
+</head>
+<body>
+
+<!-- KINETIC AURORA — cinematic intro (auto-removed on load) -->
+<div class="cs-loader" aria-hidden="true">
+  <svg class="cs-loader-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <defs>
+      <clipPath id="l-clip"><polygon points="100,18 178,95 100,172 22,95"/></clipPath>
+      <linearGradient id="l-l" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient>
+      <linearGradient id="l-r" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient>
+    </defs>
+    <g clip-path="url(#l-clip)">
+      <path d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z" fill="url(#l-l)"/>
+      <path d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z" fill="url(#l-r)"/>
+    </g>
+    <polygon points="100,18 178,95 100,172 22,95" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1.5"/>
+  </svg>
+  <div class="cs-loader-word"><span>C</span><span>l</span><span>a</span><span>r</span><span>i</span><span>t</span><span>y</span><span>S</span><span>c</span><span>a</span><span>l</span><span>e</span></div>
+  <div class="cs-loader-bar"><div class="cs-loader-bar-fill"></div></div>
+</div>
+<div class="cs-curtain cs-curtain-top" aria-hidden="true"></div>
+<div class="cs-curtain cs-curtain-bot" aria-hidden="true"></div>
+
+<!-- Scroll progress beam + grain texture + custom cursor -->
+<div class="cs-progress" aria-hidden="true"></div>
+<div class="cs-grain" aria-hidden="true"></div>
+<div class="cs-cursor" aria-hidden="true"></div>
+<div class="cs-cursor-ring" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo" aria-label="ClarityScale home">
+      <span class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="36" height="36">
+          <defs>
+            <radialGradient id="n-bg" cx="50%" cy="55%" r="48%"><stop offset="0%" stop-color="#1a0a2e"/><stop offset="100%" stop-color="#000"/></radialGradient>
+            <clipPath id="n-clip"><polygon points="100,18 178,95 100,172 22,95"/></clipPath>
+            <linearGradient id="n-rl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="40%" stop-color="#2979ff"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient>
+            <linearGradient id="n-rr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="50%" stop-color="#d41fb0"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient>
+            <linearGradient id="n-gl" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.22)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
+            <filter id="n-sg" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="200" height="200" fill="url(#n-bg)"/>
+          <g clip-path="url(#n-clip)">
+            <polygon points="100,18 178,95 100,172 22,95" fill="#050010"/>
+            <path d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z" fill="url(#n-rl)" opacity="0.95"/>
+            <path d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z" fill="url(#n-rr)" opacity="0.95"/>
+            <polygon points="100,18 178,95 100,172 22,95" fill="url(#n-gl)" opacity="0.7"/>
+          </g>
+          <polygon points="100,18 178,95 100,172 22,95" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <g filter="url(#n-sg)" transform="translate(100,20)"><circle r="2.5" fill="white"/><line x1="0" y1="-9" x2="0" y2="9" stroke="white" stroke-width="0.8" stroke-linecap="round"/><line x1="-9" y1="0" x2="9" y2="0" stroke="white" stroke-width="0.8" stroke-linecap="round"/></g>
+        </svg>
+      </span>
+      <span class="logo-text">ClarityScale</span>
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#home"         class="nav-link active">Home</a></li>
+      <li><a href="#services"     class="nav-link">Services</a></li>
+      <li><a href="#how-it-works" class="nav-link">Process</a></li>
+      <li><a href="#pricing"      class="nav-link">Pricing</a></li>
+      <li><a href="#testimonials" class="nav-link">Work</a></li>
+      <li><a href="#contact"      class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#contact" class="btn btn-ghost btn-sm">Say Hello</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Start a Project</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true">
+  <ul role="list">
+    <li><a href="#home"         class="mobile-link">Home</a></li>
+    <li><a href="#services"     class="mobile-link">Services</a></li>
+    <li><a href="#how-it-works" class="mobile-link">Process</a></li>
+    <li><a href="#pricing"      class="mobile-link">Pricing</a></li>
+    <li><a href="#testimonials" class="mobile-link">Work</a></li>
+    <li><a href="#contact"      class="mobile-link">Contact</a></li>
+  </ul>
+  <div class="mobile-drawer-cta">
+    <a href="#contact" class="btn btn-primary btn-full">Start a Project</a>
+  </div>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+
+<!-- HERO -->
+<section id="home" class="hero" aria-label="Hero">
+  <div class="cs-aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="dot-grid" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content" data-animate="hero">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Digital Growth Hub
+      </div>
+      <h1 class="hero-headline">
+        Scale Smarter.<br />
+        <span class="gradient-text">Grow Faster.</span>
+      </h1>
+      <p class="hero-sub">
+        ClarityScale is your end-to-end digital growth partner. We build high-performance
+        websites, bold brands, and custom digital strategies that drive real, measurable results.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Start Your Project
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/><path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/></svg>
+          Our Services
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-value">50+</span><span class="stat-label">Projects Launched</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">100%</span><span class="stat-label">Client Satisfaction</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">3x</span><span class="stat-label">Avg. Growth</span></div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat"><span class="stat-value">Fast</span><span class="stat-label">Turnaround</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="hero-logo-svg">
+          <defs>
+            <radialGradient id="h-bg" cx="50%" cy="55%" r="45%"><stop offset="0%" stop-color="#1a0a2e"/><stop offset="100%" stop-color="#000000"/></radialGradient>
+            <clipPath id="h-clip"><polygon points="500,100 880,480 500,860 120,480"/></clipPath>
+            <linearGradient id="h-rl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="30%" stop-color="#2979ff"/><stop offset="70%" stop-color="#6a1de0"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient>
+            <linearGradient id="h-rr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="35%" stop-color="#d41fb0"/><stop offset="70%" stop-color="#f0446a"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient>
+            <linearGradient id="h-gl" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.25)"/><stop offset="50%" stop-color="rgba(255,255,255,0.04)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
+            <radialGradient id="h-is" cx="50%" cy="50%" r="50%"><stop offset="60%" stop-color="rgba(0,0,0,0)"/><stop offset="100%" stop-color="rgba(0,0,0,0.6)"/></radialGradient>
+            <filter id="h-sg" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="7" result="b1"/><feGaussianBlur stdDeviation="2.5" result="b2"/><feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <filter id="h-bg2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <radialGradient id="h-rf" cx="50%" cy="0%" r="60%"><stop offset="0%" stop-color="rgba(200,180,255,0.55)"/><stop offset="100%" stop-color="rgba(200,180,255,0)"/></radialGradient>
+          </defs>
+          <rect width="1000" height="1000" fill="url(#h-bg)"/>
+          <polygon points="500,100 880,480 500,860 120,480" fill="none" stroke="#2979ff" stroke-width="2.5" opacity="0.5" filter="url(#h-bg2)"/>
+          <g clip-path="url(#h-clip)">
+            <polygon points="500,100 880,480 500,860 120,480" fill="#050010"/>
+            <path d="M 205,270 C 290,210 420,200 460,320 C 500,440 430,540 370,620 C 310,700 260,740 230,790 L 330,800 C 355,750 410,710 470,640 C 530,570 605,460 575,330 C 545,200 410,140 300,160 L 205,270 Z" fill="url(#h-rl)" opacity="0.95"/>
+            <path d="M 205,270 C 255,230 330,210 370,240 C 330,215 255,235 210,278 Z" fill="rgba(180,230,255,0.55)"/>
+            <path d="M 390,150 C 460,130 590,160 640,270 C 690,380 650,480 600,570 C 550,660 490,720 470,800 L 580,800 C 600,720 660,650 710,550 C 760,450 790,330 740,210 C 690,90 540,85 430,140 L 390,150 Z" fill="url(#h-rr)" opacity="0.95"/>
+            <path d="M 430,140 C 510,120 620,155 650,240 C 615,150 510,125 435,148 Z" fill="rgba(255,200,240,0.4)"/>
+            <polygon points="500,100 880,480 500,860 120,480" fill="url(#h-gl)" opacity="0.7"/>
+            <polygon points="500,100 880,480 500,860 120,480" fill="url(#h-is)"/>
+          </g>
+          <polygon points="500,100 880,480 500,860 120,480" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+          <g filter="url(#h-sg)" transform="translate(500,103)"><circle r="5" fill="white"/><line x1="0" y1="-28" x2="0" y2="28" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="-28" y1="0" x2="28" y2="0" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="-16" y1="-16" x2="16" y2="16" stroke="white" stroke-width="0.9" stroke-linecap="round" opacity="0.55"/><line x1="16" y1="-16" x2="-16" y2="16" stroke="white" stroke-width="0.9" stroke-linecap="round" opacity="0.55"/></g>
+          <g filter="url(#h-sg)" transform="translate(500,857)"><circle r="5" fill="white"/><line x1="0" y1="-26" x2="0" y2="26" stroke="white" stroke-width="1.8" stroke-linecap="round"/><line x1="-26" y1="0" x2="26" y2="0" stroke="white" stroke-width="1.8" stroke-linecap="round"/></g>
+          <ellipse cx="500" cy="895" rx="160" ry="18" fill="url(#h-rf)"/>
+          <ellipse cx="500" cy="892" rx="22" ry="4" fill="rgba(255,255,255,0.65)"/>
+        </svg>
+        <div class="float-card float-card-1">
+          <div class="float-card-icon">🚀</div>
+          <div class="float-card-info"><span class="float-card-val">Launched</span><span class="float-card-lbl">New website live</span></div>
+        </div>
+        <div class="float-card float-card-2">
+          <div class="float-card-icon">📈</div>
+          <div class="float-card-info"><span class="float-card-val">+340%</span><span class="float-card-lbl">Organic traffic</span></div>
+        </div>
+        <div class="float-card float-card-3">
+          <div class="float-card-icon">✨</div>
+          <div class="float-card-info"><span class="float-card-val">Brand Ready</span><span class="float-card-lbl">Identity delivered</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><div class="scroll-line"></div></div>
+</section>
+
+
+<!-- TRUST BAR -->
+<section class="trust-bar" aria-label="Industries we serve">
+  <div class="container">
+    <p class="trust-label">Powering growth for businesses across</p>
+    <div class="trust-logos">
+      <span class="trust-logo">E-Commerce</span>
+      <span class="trust-logo">Startups</span>
+      <span class="trust-logo">SaaS</span>
+      <span class="trust-logo">Agencies</span>
+      <span class="trust-logo">Hospitality</span>
+      <span class="trust-logo">Real Estate</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="features section" aria-label="Services">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title" data-cs-title>Digital services built to <span class="gradient-text">drive growth</span></h2>
+      <p class="section-sub">From your first pixel to your next 10,000 customers — we handle every layer of your digital presence.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" data-scroll-reveal data-delay="0">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Website Development</h3>
+        <p>Custom, high-performance websites built for speed, conversion, and scale. From landing pages to full-stack web applications.</p>
+        <div class="feature-tag">Core Service</div>
+      </div>
+
+      <div class="feature-card" data-scroll-reveal data-delay="100">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z"/></svg>
+        </div>
+        <h3>UI/UX Design</h3>
+        <p>Beautiful, intuitive interfaces that keep users engaged and convert visitors into loyal customers — effortlessly.</p>
+        <div class="feature-tag">Design</div>
+      </div>
+
+      <div class="feature-card feature-card-large" data-scroll-reveal data-delay="200">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        </div>
+        <h3>Brand Identity</h3>
+        <p>We craft brand identities that are unmistakable — logos, colour systems, typography, tone of voice, and complete visual guidelines that make your business impossible to ignore and impossible to forget.</p>
+        <div class="feature-sparkle" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="feature-tag">Core Service</div>
+      </div>
+
+      <div class="feature-card" data-scroll-reveal data-delay="0">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+        </div>
+        <h3>SEO &amp; Growth Strategy</h3>
+        <p>Data-driven SEO and digital growth strategies that consistently put your business in front of the right audience at exactly the right moment.</p>
+        <div class="feature-tag">Growth</div>
+      </div>
+
+      <div class="feature-card" data-scroll-reveal data-delay="100">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3>E-Commerce Solutions</h3>
+        <p>Conversion-optimised online stores built on Shopify, WooCommerce, or custom stacks — designed to sell around the clock.</p>
+        <div class="feature-tag">Commerce</div>
+      </div>
+
+      <div class="feature-card" data-scroll-reveal data-delay="200">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>Digital Marketing</h3>
+        <p>Social media, paid ads, email campaigns, and content marketing — aligned to your brand and tuned for consistent, compounding growth.</p>
+        <div class="feature-tag">Marketing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROCESS -->
+<section id="how-it-works" class="how-it-works section" aria-label="Our process">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Our Process</span>
+      <h2 class="section-title" data-cs-title>From idea to launch in <span class="gradient-text">three clear steps</span></h2>
+      <p class="section-sub">A proven, transparent process that keeps you informed and in control at every stage.</p>
+    </div>
+
+    <div class="steps-wrapper">
+      <div class="steps-line" aria-hidden="true"></div>
+      <div class="steps-grid">
+
+        <div class="step-card" data-scroll-reveal data-delay="0">
+          <div class="step-num">01</div>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Discover &amp; Strategise</h3>
+          <p>We start by deeply understanding your business, goals, audience, and competition. Then we craft a tailored digital strategy with a clear roadmap before a single pixel is designed.</p>
+          <ul class="step-list">
+            <li>Business &amp; audience deep-dive</li>
+            <li>Competitor analysis</li>
+            <li>Scope &amp; project roadmap</li>
+          </ul>
+        </div>
+
+        <div class="step-card step-card-accent" data-scroll-reveal data-delay="150">
+          <div class="step-num">02</div>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Design &amp; Build</h3>
+          <p>Our team designs and develops your digital assets with obsessive attention to quality. You get regular updates, feedback rounds, and full transparency throughout the build phase.</p>
+          <ul class="step-list">
+            <li>Wireframes &amp; design mockups</li>
+            <li>Iterative build with feedback</li>
+            <li>Quality assurance &amp; testing</li>
+          </ul>
+        </div>
+
+        <div class="step-card" data-scroll-reveal data-delay="300">
+          <div class="step-num">03</div>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+          </div>
+          <h3>Launch &amp; Grow</h3>
+          <p>We launch your project with care and continue supporting your growth — optimising performance, running marketing, and iterating on real data so results keep compounding.</p>
+          <ul class="step-list">
+            <li>Smooth, stress-free launch</li>
+            <li>Ongoing optimisation</li>
+            <li>Growth support &amp; reporting</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WORK PREVIEW -->
+<section id="dashboard" class="dashboard-section section" aria-label="Our work preview">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title" data-cs-title>Built with <span class="gradient-text">purpose and precision</span></h2>
+      <p class="section-sub">Every project we deliver is crafted to perform — not just look good. Here's a snapshot of what we build.</p>
+    </div>
+
+    <div class="dashboard-frame" data-scroll-reveal>
+      <div class="macbook-chrome">
+        <div class="macbook-top">
+          <div class="mac-dots"><span class="mac-dot dot-red"></span><span class="mac-dot dot-yellow"></span><span class="mac-dot dot-green"></span></div>
+          <div class="mac-url-bar">client-project.clarityscale.io</div>
+          <div class="mac-icons"><span></span><span></span></div>
+        </div>
+        <div class="dashboard-ui">
+          <div class="dash-sidebar">
+            <div class="dash-logo-mini">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="22" height="22">
+                <defs><clipPath id="d-clip"><polygon points="20,3 36,19 20,35 4,19"/></clipPath><linearGradient id="d-l" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient><linearGradient id="d-r" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient></defs>
+                <rect width="40" height="40" fill="#050010"/>
+                <g clip-path="url(#d-clip)"><path d="M4,7 C8,4 16,3 18,12 C20,21 16,27 13,32 L17,33 C20,28 24,22 22,13 C20,4 11,2 6,5Z" fill="url(#d-l)"/><path d="M15,3 C19,2 26,4 28,11 C30,18 27,25 24,30 L28,30 C31,24 33,16 30,9 C27,2 19,1 14,4Z" fill="url(#d-r)"/></g>
+              </svg>
+            </div>
+            <nav class="dash-nav">
+              <div class="dash-nav-item active"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg><span>Projects</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg><span>Results</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg><span>Live Sites</span></div>
+              <div class="dash-nav-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Clients</span></div>
+            </nav>
+          </div>
+          <div class="dash-main">
+            <div class="dash-header-row">
+              <div><div class="dash-title">Active Projects</div><div class="dash-subtitle">4 in progress · Updated just now</div></div>
+              <div class="dash-header-actions"><span class="dash-btn">View All</span><span class="dash-btn dash-btn-accent">+ New Brief</span></div>
+            </div>
+            <div class="dash-kpi-row">
+              <div class="dash-kpi"><div class="kpi-label">Sites Live</div><div class="kpi-value">52</div><div class="kpi-delta up">▲ 8 this quarter</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Avg. Delivery</div><div class="kpi-value">12d</div><div class="kpi-delta up">▲ 20% faster</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Satisfaction</div><div class="kpi-value">100%</div><div class="kpi-delta up">▲ All time</div></div>
+              <div class="dash-kpi"><div class="kpi-label">Avg. Traffic</div><div class="kpi-value">+340%</div><div class="kpi-delta up">▲ Post-launch</div></div>
+            </div>
+            <div class="dash-chart-area">
+              <div class="dash-chart-title">Projects delivered per month</div>
+              <div class="dash-chart">
+                <div class="chart-bars">
+                  <div class="chart-bar" style="--h:55%"><span>Jan</span></div>
+                  <div class="chart-bar" style="--h:65%"><span>Feb</span></div>
+                  <div class="chart-bar" style="--h:60%"><span>Mar</span></div>
+                  <div class="chart-bar" style="--h:78%"><span>Apr</span></div>
+                  <div class="chart-bar" style="--h:70%"><span>May</span></div>
+                  <div class="chart-bar chart-bar-active" style="--h:92%"><span>Jun</span></div>
+                  <div class="chart-bar" style="--h:85%"><span>Jul</span></div>
+                  <div class="chart-bar" style="--h:95%"><span>Aug</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-bottom-row">
+              <div class="dash-recent">
+                <div class="dash-section-title">Recent Milestones</div>
+                <div class="ai-rec"><span class="ai-dot"></span><span>NovaBrew e-commerce store — launched &amp; live</span></div>
+                <div class="ai-rec"><span class="ai-dot ai-dot-warn"></span><span>PeakFit brand identity — final review stage</span></div>
+                <div class="ai-rec"><span class="ai-dot ai-dot-info"></span><span>Luxe Realty SEO — organic traffic up 340%</span></div>
+              </div>
+              <div class="dash-activity">
+                <div class="dash-section-title">Service Breakdown</div>
+                <div class="source-item"><span class="source-name">Web Dev</span><div class="source-bar"><div class="source-fill" style="width:88%"></div></div><span class="source-pct">88%</span></div>
+                <div class="source-item"><span class="source-name">Branding</span><div class="source-bar"><div class="source-fill" style="width:72%"></div></div><span class="source-pct">72%</span></div>
+                <div class="source-item"><span class="source-name">SEO</span><div class="source-bar"><div class="source-fill" style="width:55%"></div></div><span class="source-pct">55%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-glow" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing" class="pricing section" aria-label="Pricing">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title" data-cs-title>Transparent, growth-focused <span class="gradient-text">packages</span></h2>
+      <p class="section-sub">No hidden fees. No surprise invoices. Clear, honest pricing that scales with your ambition.</p>
+    </div>
+
+    <div class="pricing-toggle" data-scroll-reveal>
+      <span class="toggle-label">Monthly Retainer</span>
+      <label class="toggle-switch" aria-label="Toggle to one-off project pricing"><input type="checkbox" id="billingToggle" /><span class="toggle-track"></span></label>
+      <span class="toggle-label">One-off Project <span class="save-badge">Best Value</span></span>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card" data-scroll-reveal data-delay="0">
+        <div class="plan-name">Starter</div>
+        <div class="plan-desc">Perfect for small businesses and solo entrepreneurs who need a powerful online presence fast.</div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount" data-monthly="499" data-annual="1299">499</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> 5-page website design &amp; build</li>
+          <li><span class="check-icon">✓</span> Mobile responsive &amp; fast</li>
+          <li><span class="check-icon">✓</span> Basic SEO setup</li>
+          <li><span class="check-icon">✓</span> Logo &amp; brand colours</li>
+          <li><span class="check-icon">✓</span> 1 round of revisions</li>
+          <li class="disabled"><span class="check-icon">✗</span> E-commerce functionality</li>
+          <li class="disabled"><span class="check-icon">✗</span> Ongoing marketing support</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card pricing-card-pro" data-scroll-reveal data-delay="100">
+        <div class="pro-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-desc">For growing businesses that need a complete digital presence and ongoing growth partnership.</div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount" data-monthly="1299" data-annual="3499">1,299</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-full">Start Growing</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Up to 15-page website</li>
+          <li><span class="check-icon">✓</span> Full brand identity system</li>
+          <li><span class="check-icon">✓</span> Advanced SEO strategy</li>
+          <li><span class="check-icon">✓</span> Social media management</li>
+          <li><span class="check-icon">✓</span> Monthly performance report</li>
+          <li><span class="check-icon">✓</span> E-commerce ready</li>
+          <li><span class="check-icon">✓</span> Priority support</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card" data-scroll-reveal data-delay="200">
+        <div class="plan-name">Scale</div>
+        <div class="plan-desc">For established businesses that need a dedicated digital team and fully custom-built solutions.</div>
+        <div class="plan-price">
+          <span class="price-custom">Custom</span>
+        </div>
+        <a href="#contact" class="btn btn-outline btn-full">Let's Talk</a>
+        <ul class="plan-features">
+          <li><span class="check-icon">✓</span> Everything in Growth</li>
+          <li><span class="check-icon">✓</span> Custom web applications</li>
+          <li><span class="check-icon">✓</span> Paid ads management</li>
+          <li><span class="check-icon">✓</span> Email marketing campaigns</li>
+          <li><span class="check-icon">✓</span> Dedicated account manager</li>
+          <li><span class="check-icon">✓</span> Quarterly strategy sessions</li>
+          <li><span class="check-icon">✓</span> White-glove onboarding</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials section" aria-label="Client testimonials">
+  <div class="container">
+    <div class="section-header" data-scroll-reveal>
+      <span class="section-tag">Client Stories</span>
+      <h2 class="section-title" data-cs-title>Results that <span class="gradient-text">speak for themselves</span></h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card" data-scroll-reveal data-delay="0">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"ClarityScale rebuilt our entire online presence in under 3 weeks. Our website traffic tripled and we started getting inbound leads for the first time ever. Genuinely life-changing for our business."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#00d4ff,#6a1de0)">JM</div>
+          <div class="author-info"><strong>Jordan Mitchell</strong><span>Founder · NovaBrew Co.</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-card-accent" data-scroll-reveal data-delay="100">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"We needed a brand that matched our premium positioning. ClarityScale delivered beyond what we imagined — the new identity, website, and strategy completely transformed how clients perceive us."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#d41fb0,#ff6a00)">SR</div>
+          <div class="author-info"><strong>Sophia Reyes</strong><span>CEO · Luxe Realty Group</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-scroll-reveal data-delay="200">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"From day one, the ClarityScale team felt like an extension of ours. They're strategic, creative, fast, and genuinely care about results. Our e-commerce revenue jumped 280% in the first 90 days."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#2979ff,#d41fb0)">KA</div>
+          <div class="author-info"><strong>Kai Anderson</strong><span>Director · PeakFit Store</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" data-scroll-reveal data-delay="300">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <blockquote>"Other agencies talk about growth — ClarityScale actually delivers it. Clear communication, no fluff, and a team that treats your business like their own. Highly recommend to any serious business owner."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#6a1de0,#00d4ff)">TN</div>
+          <div class="author-info"><strong>Tara Nguyen</strong><span>CMO · Zenit SaaS</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta-section section" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-box" data-scroll-reveal>
+      <div class="cta-orb cta-orb-1" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb-2" aria-hidden="true"></div>
+      <div class="cta-logo" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64">
+          <defs>
+            <clipPath id="c-clip"><polygon points="100,18 178,95 100,172 22,95"/></clipPath>
+            <linearGradient id="c-l" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient>
+            <linearGradient id="c-r" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient>
+            <linearGradient id="c-g" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.22)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
+            <filter id="c-f" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="200" height="200" fill="#050010"/>
+          <g clip-path="url(#c-clip)">
+            <polygon points="100,18 178,95 100,172 22,95" fill="#050010"/>
+            <path d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z" fill="url(#c-l)"/>
+            <path d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z" fill="url(#c-r)"/>
+            <polygon points="100,18 178,95 100,172 22,95" fill="url(#c-g)" opacity="0.7"/>
+          </g>
+          <polygon points="100,18 178,95 100,172 22,95" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <g filter="url(#c-f)" transform="translate(100,20)"><circle r="3" fill="white"/><line x1="0" y1="-12" x2="0" y2="12" stroke="white" stroke-width="1" stroke-linecap="round"/><line x1="-12" y1="0" x2="12" y2="0" stroke="white" stroke-width="1" stroke-linecap="round"/></g>
+        </svg>
+      </div>
+      <h2 class="cta-headline">Ready to scale smarter?</h2>
+      <p class="cta-sub">Let's build something that genuinely grows your business. Tell us about your project and we'll get back to you within 24 hours.</p>
+      <div class="cta-buttons">
+        <a href="mailto:contact.clarityscale@gmail.com" class="btn btn-primary btn-xl">Email Us Now</a>
+        <a href="https://wa.me/916301050825" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-xl">WhatsApp Us</a>
+      </div>
+      <p class="cta-footnote">Free initial consultation · No commitment · Real results</p>
+      <div class="cta-contact-strip">
+        <a href="mailto:contact.clarityscale@gmail.com" class="cta-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact.clarityscale@gmail.com
+        </a>
+        <span class="cta-contact-sep">·</span>
+        <a href="tel:+916301050825" class="cta-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 6301050825
+        </a>
+        <span class="cta-contact-sep">·</span>
+        <a href="https://www.instagram.com/clarityscale/" target="_blank" rel="noopener noreferrer" class="cta-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @clarityscale
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact" class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo footer-logo">
+          <span class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="32" height="32">
+              <defs>
+                <clipPath id="f-clip"><polygon points="100,18 178,95 100,172 22,95"/></clipPath>
+                <linearGradient id="f-l" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#7c13c8"/></linearGradient>
+                <linearGradient id="f-r" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8b19d6"/><stop offset="100%" stop-color="#ff6a00"/></linearGradient>
+                <linearGradient id="f-g" x1="30%" y1="0%" x2="70%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.22)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
+              </defs>
+              <rect width="200" height="200" fill="#050010"/>
+              <g clip-path="url(#f-clip)">
+                <path d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z" fill="url(#f-l)"/>
+                <path d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z" fill="url(#f-r)"/>
+                <polygon points="100,18 178,95 100,172 22,95" fill="url(#f-g)" opacity="0.7"/>
+              </g>
+              <polygon points="100,18 178,95 100,172 22,95" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            </svg>
+          </span>
+          <span class="logo-text">ClarityScale</span>
+        </a>
+        <p class="footer-tagline">Your digital growth hub. We guide businesses to scale smarter and faster through world-class web development, branding, and digital strategy.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/clarityscale/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Website Development</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">Brand Identity</a></li>
+            <li><a href="#services">SEO &amp; Growth</a></li>
+            <li><a href="#services">E-Commerce</a></li>
+            <li><a href="#services">Digital Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#home">About Us</a></li>
+            <li><a href="#testimonials">Our Work</a></li>
+            <li><a href="#how-it-works">Our Process</a></li>
+            <li><a href="#contact">Blog</a></li>
+            <li><a href="#contact">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Started</h4>
+          <ul>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Free Consultation</a></li>
+            <li><a href="#contact">Start a Project</a></li>
+            <li><a href="https://www.instagram.com/clarityscale/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact.clarityscale@gmail.com">contact.clarityscale@gmail.com</a></li>
+            <li><a href="tel:+916301050825">+91 6301050825</a></li>
+            <li><a href="https://wa.me/916301050825" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 ClarityScale. All rights reserved. Your digital growth hub.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="https://www.instagram.com/clarityscale/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- MOBILE BOTTOM NAV BAR (phones only) -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile bottom navigation">
+  <div class="mobile-bottom-nav-inner">
+    <a href="#home" class="mob-nav-item active" data-section="home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#services" class="mob-nav-item" data-section="services">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+      <span>Services</span>
+    </a>
+    <a href="#contact" class="mob-nav-item mob-nav-cta" data-section="contact">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Hire Us</span>
+    </a>
+    <a href="#pricing" class="mob-nav-item" data-section="pricing">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span>Pricing</span>
+    </a>
+    <a href="#testimonials" class="mob-nav-item" data-section="testimonials">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Work</span>
+    </a>
+  </div>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="script.js"></script>
+<script src="experience.js"></script>
+</body>
+</html>

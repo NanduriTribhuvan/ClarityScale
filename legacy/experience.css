@@ -1,0 +1,254 @@
+/* ============================================================
+   ClarityScale — experience.css
+   "Kinetic Aurora" next-level motion layer (additive)
+   Loads AFTER styles.css. Only NEW classes — no overrides of
+   existing selectors, so it can't regress the base design.
+============================================================ */
+
+/* ── Tokens specific to the motion layer ── */
+:root {
+  --aurora-1: #00d4ff;
+  --aurora-2: #6a1de0;
+  --aurora-3: #d41fb0;
+  --aurora-4: #ff6a00;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   1. CINEMATIC PRELOADER / INTRO
+============================================================ */
+.cs-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: radial-gradient(ellipse 120% 100% at 50% 40%, #0a0820 0%, #030309 70%);
+  will-change: transform, opacity;
+}
+.cs-loader.is-done {
+  pointer-events: none;
+}
+
+.cs-loader-mark {
+  width: 84px;
+  height: 84px;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: drop-shadow(0 0 36px rgba(41, 121, 255, 0.45));
+}
+
+.cs-loader-word {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 5vw, 42px);
+  letter-spacing: -0.02em;
+  display: flex;
+  gap: 0.02em;
+  overflow: hidden;
+}
+.cs-loader-word span {
+  display: inline-block;
+  transform: translateY(110%);
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cs-loader-bar {
+  width: min(240px, 60vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cs-loader-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3));
+  border-radius: 2px;
+}
+
+/* The wipe panels that reveal the page */
+.cs-curtain {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background: #050010;
+  pointer-events: none;
+}
+.cs-curtain-top { top: 0; height: 50vh; }
+.cs-curtain-bot { bottom: 0; height: 50vh; }
+
+/* ============================================================
+   2. SCROLL PROGRESS BEAM
+============================================================ */
+.cs-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 1001;
+  background: linear-gradient(90deg, var(--aurora-1), var(--aurora-2) 40%, var(--aurora-3) 70%, var(--aurora-4));
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+  pointer-events: none;
+}
+
+/* ============================================================
+   3. AURORA GRADIENT MESH (behind hero)
+============================================================ */
+.cs-aurora {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 140%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(60px) saturate(140%);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+}
+.cs-aurora span {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.cs-aurora .a1 {
+  width: 46vw; height: 46vw;
+  left: 8%; top: 6%;
+  background: radial-gradient(circle, var(--aurora-1) 0%, transparent 62%);
+  animation: csAurora1 16s ease-in-out infinite alternate;
+}
+.cs-aurora .a2 {
+  width: 40vw; height: 40vw;
+  right: 6%; top: 20%;
+  background: radial-gradient(circle, var(--aurora-2) 0%, transparent 60%);
+  animation: csAurora2 20s ease-in-out infinite alternate;
+}
+.cs-aurora .a3 {
+  width: 34vw; height: 34vw;
+  left: 38%; bottom: 2%;
+  background: radial-gradient(circle, var(--aurora-3) 0%, transparent 60%);
+  animation: csAurora3 18s ease-in-out infinite alternate;
+}
+@keyframes csAurora1 { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(8%, 6%, 0) scale(1.18); } }
+@keyframes csAurora2 { from { transform: translate3d(0,0,0) scale(1.1); } to { transform: translate3d(-7%, 4%, 0) scale(0.92); } }
+@keyframes csAurora3 { from { transform: translate3d(0,0,0) scale(0.95); } to { transform: translate3d(5%, -6%, 0) scale(1.2); } }
+
+/* ============================================================
+   4. FILM GRAIN OVERLAY (texture / depth)
+============================================================ */
+.cs-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  animation: csGrain 0.6s steps(2) infinite;
+}
+@keyframes csGrain {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-4%, 3%); }
+  100% { transform: translate(3%, -2%); }
+}
+
+/* ============================================================
+   5. SECTION TITLE — gradient sweep mask reveal
+   Opt-in via [data-cs-title]; hidden only when JS is active.
+============================================================ */
+.cs-ready [data-cs-title] .cs-line {
+  display: block;
+  overflow: hidden;
+}
+.cs-ready [data-cs-title] .cs-line > span {
+  display: inline-block;
+  transform: translateY(102%);
+  will-change: transform;
+}
+
+/* SplitText hero chars */
+.cs-ready .hero-headline .cs-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ============================================================
+   6. ENHANCED CUSTOM CURSOR (desktop)
+============================================================ */
+.cs-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--aurora-1);
+  z-index: 100001;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: width 0.25s var(--ease-out-expo), height 0.25s var(--ease-out-expo), background 0.25s;
+}
+.cs-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 38px; height: 38px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 50%;
+  z-index: 100000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+.cs-cursor.is-hover { width: 0; height: 0; }
+.cs-cursor-ring.is-hover {
+  width: 64px; height: 64px;
+  border-color: rgba(0, 212, 255, 0.8);
+  background: rgba(0, 212, 255, 0.06);
+}
+
+/* ============================================================
+   7. MAGNETIC + REVEAL UTILITIES
+============================================================ */
+.cs-marquee-track { display: inline-flex; white-space: nowrap; will-change: transform; }
+
+/* ============================================================
+   ACCESSIBILITY — reduced motion kill switch
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .cs-aurora, .cs-grain { animation: none !important; }
+  .cs-loader { display: none !important; }
+  .cs-curtain { display: none !important; }
+  .cs-cursor, .cs-cursor-ring { display: none !important; }
+  .cs-ready [data-cs-title] .cs-line > span,
+  .cs-ready .hero-headline .cs-char { transform: none !important; opacity: 1 !important; }
+}
+
+/* Hide custom cursor on touch / small screens */
+@media (max-width: 1024px) {
+  .cs-cursor, .cs-cursor-ring { display: none !important; }
+}
+
+/* ============================================================
+   FAILSAFE — if experience.js never runs (e.g. blocked), the
+   intro loader auto-dismisses so the page is never trapped.
+============================================================ */
+.cs-loader {
+  animation: csLoaderFailsafe 0.01s linear 6s forwards;
+}
+@keyframes csLoaderFailsafe {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+.cs-curtain {
+  animation: csCurtainFailsafe 0.01s linear 6s forwards;
+}
+@keyframes csCurtainFailsafe {
+  to { opacity: 0; visibility: hidden; }
+}
