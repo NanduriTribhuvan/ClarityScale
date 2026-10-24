@@ -52,7 +52,7 @@
 }
 
 .blog-chip {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-2);
