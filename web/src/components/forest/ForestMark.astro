@@ -1,25 +1,56 @@
 ---
-// ClarityScale mark for the forest theme: the brand diamond with a pine inside.
+// The ClarityScale mark (diamond + two ribbons + north star), from logo_hq.svg.
+// Each instance gets its own gradient ids so several marks can share a page.
 interface Props {
   size?: number;
 }
-const { size = 30 } = Astro.props;
+const { size = 34 } = Astro.props;
+const uid = `fm${Math.random().toString(36).slice(2, 9)}`;
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 32 32"
+  viewBox="0 0 200 200"
   width={size}
   height={size}
   aria-hidden="true"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="1.6"
-  stroke-linejoin="round"
+  class="f-mark"
 >
-  <path d="M16 2 30 16 16 30 2 16Z"></path>
-  <path
-    d="M16 8 20.5 14H18.3L22 19.5H17.3V23H14.7V19.5H10L13.7 14H11.5Z"
-    fill="currentColor"
-    stroke="none"></path>
+  <defs>
+    <clipPath id={`${uid}-clip`}>
+      <polygon points="100,18 178,95 100,172 22,95"></polygon>
+    </clipPath>
+    <linearGradient id={`${uid}-l`} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"></stop>
+      <stop offset="40%" stop-color="#2979ff"></stop>
+      <stop offset="100%" stop-color="#7c13c8"></stop>
+    </linearGradient>
+    <linearGradient id={`${uid}-r`} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b19d6"></stop>
+      <stop offset="50%" stop-color="#d41fb0"></stop>
+      <stop offset="100%" stop-color="#ff6a00"></stop>
+    </linearGradient>
+  </defs>
+  <polygon points="100,18 178,95 100,172 22,95" fill="#07041a"></polygon>
+  <g clip-path={`url(#${uid}-clip)`}>
+    <path
+      class="f-mark__l"
+      d="M38,52 C57,40 82,38 90,62 C98,86 84,107 72,123 C60,139 50,148 44,158 L64,160 C70,150 80,141 92,126 C104,111 118,90 113,63 C108,36 81,24 57,30 L38,52Z"
+      fill={`url(#${uid}-l)`}></path>
+    <path
+      class="f-mark__r"
+      d="M76,28 C91,24 117,30 127,52 C137,74 130,95 119,113 C108,131 96,143 92,160 L114,160 C118,143 130,129 141,108 C152,87 157,63 147,40 C137,17 107,15 84,27 L76,28Z"
+      fill={`url(#${uid}-r)`}></path>
+  </g>
+  <polygon
+    points="100,18 178,95 100,172 22,95"
+    fill="none"
+    stroke="rgba(255,255,255,0.22)"
+    stroke-width="3"></polygon>
+  <g transform="translate(100,20)">
+    <g class="f-mark__star">
+      <circle r="6" fill="#fff"></circle>
+      <path d="M0-22V22M-22 0H22" stroke="#fff" stroke-width="3.2" stroke-linecap="round"></path>
+    </g>
+  </g>
 </svg>

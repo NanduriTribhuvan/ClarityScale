@@ -13,7 +13,7 @@ const year = new Date().getFullYear();
 
 <footer id="contact" class="f-clearing" aria-labelledby="f-contact-title">
   <div class="f-wrap f-contact">
-    <div>
+    <div data-f-reveal>
       <h2 class="f-h2" id="f-contact-title">Start a project</h2>
       <p class="f-lede">
         Tell us what you're building and where you want it to be in a year. We'll reply with next
@@ -38,11 +38,13 @@ const year = new Date().getFullYear();
       </ul>
     </div>
 
-    <ContactForm client:visible />
+    <div data-f-reveal style="--d:0.1s">
+      <ContactForm client:visible />
+    </div>
   </div>
 
   <div class="f-wrap">
-    <p class="f-signoff">
+    <p class="f-signoff" data-f-reveal>
       Designed to scale.
       <span
         >Crafted by <a
