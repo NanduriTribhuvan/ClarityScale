@@ -42,7 +42,7 @@
 }
 
 .cs-loader-word {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(26px, 5vw, 42px);
   letter-spacing: -0.02em;

@@ -1,0 +1,25 @@
+---
+// ClarityScale mark for the forest theme: the brand diamond with a pine inside.
+interface Props {
+  size?: number;
+}
+const { size = 30 } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  width={size}
+  height={size}
+  aria-hidden="true"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linejoin="round"
+>
+  <path d="M16 2 30 16 16 30 2 16Z"></path>
+  <path
+    d="M16 8 20.5 14H18.3L22 19.5H17.3V23H14.7V19.5H10L13.7 14H11.5Z"
+    fill="currentColor"
+    stroke="none"></path>
+</svg>

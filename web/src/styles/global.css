@@ -13,6 +13,10 @@
 }
 
 :root {
+  /* Type (overridden by forest.css on the forest-themed pages) */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
   /* Colors */
   --bg:          #030309;
   --bg-2:        #07070f;
@@ -70,7 +74,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text-1);
   line-height: 1.6;
@@ -98,7 +102,7 @@ body {
 
 /* Typography helpers */
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.15;
   color: var(--text-1);
@@ -141,7 +145,7 @@ ul { list-style: none; }
 
 .section-tag {
   display: inline-block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -174,7 +178,7 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   border-radius: var(--r-md);
   cursor: pointer;
@@ -290,7 +294,7 @@ ul { list-style: none; }
 }
 
 .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 700;
   background: var(--grad-text);
@@ -552,7 +556,7 @@ ul { list-style: none; }
 }
 
 .stat-value {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
   background: var(--grad-text);
@@ -644,7 +648,7 @@ ul { list-style: none; }
 
 .float-card-val {
   display: block;
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
   color: var(--text-1);
@@ -708,7 +712,7 @@ ul { list-style: none; }
 }
 
 .trust-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
   color: var(--text-3);
@@ -881,7 +885,7 @@ ul { list-style: none; }
 }
 
 .step-num {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -987,7 +991,7 @@ ul { list-style: none; }
   background: rgba(255,255,255,0.04);
   padding: 5px 20px;
   border-radius: 6px;
-  font-family: 'DM Sans', monospace;
+  font-family: var(--font-body);
 }
 
 .mac-icons {
@@ -1064,7 +1068,7 @@ ul { list-style: none; }
 }
 
 .dash-title {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 700;
   color: var(--text-1);
@@ -1110,7 +1114,7 @@ ul { list-style: none; }
   margin-bottom: 4px;
 }
 .kpi-value {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
   color: var(--text-1);
@@ -1364,7 +1368,7 @@ ul { list-style: none; }
 }
 
 .plan-name {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -1386,14 +1390,14 @@ ul { list-style: none; }
 }
 
 .price-currency {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
   color: var(--text-2);
 }
 
 .price-amount {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 48px;
   font-weight: 800;
   line-height: 1;
@@ -1410,7 +1414,7 @@ ul { list-style: none; }
 }
 
 .price-custom {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 36px;
   font-weight: 800;
   background: var(--grad-text);
@@ -1514,7 +1518,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 700;
   color: white;
@@ -1527,7 +1531,7 @@ ul { list-style: none; }
   gap: 2px;
 }
 .author-info strong {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
   color: var(--text-1);
@@ -1980,7 +1984,7 @@ ul { list-style: none; }
 }
 
 .mob-nav-item svg { transition: transform var(--t-fast); }
-.mob-nav-item span { font-size: 9.5px; font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.3px; }
+.mob-nav-item span { font-size: 9.5px; font-family: var(--font-body); font-weight: 500; letter-spacing: 0.3px; }
 
 .mob-nav-item:hover,
 .mob-nav-item.active {

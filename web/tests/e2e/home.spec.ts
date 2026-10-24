@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const SECTION_IDS = ['home', 'services', 'how-it-works', 'pricing', 'testimonials', 'contact'];
+const SECTION_IDS = ['home', 'services', 'work', 'how-it-works', 'pricing', 'contact'];
 
 test.describe('Home page', () => {
   test('renders every section', async ({ page }) => {

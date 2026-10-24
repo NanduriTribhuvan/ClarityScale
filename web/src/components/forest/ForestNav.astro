@@ -1,0 +1,63 @@
+---
+import ForestMark from './ForestMark.astro';
+
+interface Props {
+  /** Prefix for in-page anchors: "" on the homepage, "/" on interior pages. */
+  base?: string;
+}
+const { base = '' } = Astro.props;
+---
+
+<a class="f-skip" href="#main">Skip to content</a>
+
+<header class="f-nav" data-f-nav>
+  <div class="f-wrap f-nav__inner">
+    <a href={`${base}#home`} class="f-brand" aria-label="ClarityScale home">
+      <ForestMark />
+      <span>ClarityScale</span>
+    </a>
+
+    <nav aria-label="Main">
+      <ul class="f-nav__links">
+        <li><a href={`${base}#services`} class="nav-link">Services</a></li>
+        <li><a href={`${base}#work`} class="nav-link">Work</a></li>
+        <li><a href={`${base}#how-it-works`} class="nav-link">Process</a></li>
+        <li><a href={`${base}#pricing`} class="nav-link">Pricing</a></li>
+        <li><a href="/blog" class="nav-link">Journal</a></li>
+      </ul>
+    </nav>
+
+    <a href={`${base}#contact`} class="f-btn f-btn--primary f-nav__cta">Start a project</a>
+
+    <button
+      type="button"
+      class="f-nav__toggle"
+      aria-expanded="false"
+      aria-controls="f-menu"
+      data-f-menu-toggle
+    >
+      <span class="f-nav__bars" aria-hidden="true"></span>
+      <span class="f-sr">Menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="f-menu" id="f-menu" hidden>
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href={`${base}#services`} class="f-menu__link">Services</a></li>
+      <li><a href={`${base}#work`} class="f-menu__link">Work</a></li>
+      <li><a href={`${base}#how-it-works`} class="f-menu__link">Process</a></li>
+      <li><a href={`${base}#pricing`} class="f-menu__link">Pricing</a></li>
+      <li><a href="/blog" class="f-menu__link">Journal</a></li>
+    </ul>
+  </nav>
+  <a href={`${base}#contact`} class="f-btn f-btn--primary">Start a project</a>
+  <p class="f-menu__sign">
+    Designed to scale. Crafted by <a
+      href="https://www.instagram.com/clarityscale"
+      target="_blank"
+      rel="noopener noreferrer">@clarityscale</a
+    >
+  </p>
+</div>

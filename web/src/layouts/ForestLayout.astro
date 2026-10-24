@@ -1,0 +1,30 @@
+---
+import ForestHead from '../components/forest/ForestHead.astro';
+// Homepage shell for the forest theme. additions.css carries the contact
+// form's base styles; forest.css is the design system and must load last.
+import '../styles/additions.css';
+import '../styles/forest.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'ClarityScale | Designed to scale. Crafted by @clarityscale',
+  description = 'ClarityScale is a design and development studio building websites, brands and growth plans for businesses that intend to get bigger.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <ForestHead title={title} description={description} />
+  </head>
+  <body class="forest">
+    <slot />
+    <script>
+      import '../scripts/forest.ts';
+    </script>
+  </body>
+</html>

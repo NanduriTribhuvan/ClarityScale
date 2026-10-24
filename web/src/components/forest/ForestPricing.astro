@@ -1,0 +1,87 @@
+---
+// Pricing. Monthly retainer vs one project. The toggle (src/scripts/forest.ts)
+// swaps each [data-f-price] / [data-f-period] between its data-monthly and
+// data-project values. Without JavaScript the monthly prices stay visible.
+---
+
+<section id="pricing" class="f-section f-pricing" aria-labelledby="f-pricing-title">
+  <div class="f-wrap">
+    <div class="f-pricing__top">
+      <div>
+        <h2 class="f-h2" id="f-pricing-title">Pricing</h2>
+        <p class="f-lede">
+          Pay monthly and we stay on as your web team, or pay once for a single project. Every
+          price is agreed in writing before work starts.
+        </p>
+      </div>
+      <div class="f-billing" role="group" aria-label="Billing" data-f-billing>
+        <button type="button" data-mode="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-mode="project" aria-pressed="false">One project</button>
+      </div>
+    </div>
+
+    <ul class="f-plans">
+      <li class="f-plan">
+        <h3 class="f-h3">Starter</h3>
+        <p class="f-plan__desc">For a small business or solo founder who needs a strong site, fast.</p>
+        <p class="f-price">
+          <span class="f-price__cur">$</span>
+          <span class="f-price__amt" data-f-price data-monthly="499" data-project="1,299">499</span>
+        </p>
+        <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
+          per month
+        </p>
+        <a href="#contact" class="f-btn f-btn--ghost">Choose Starter</a>
+        <ul class="f-leaflist">
+          <li>Five-page website, designed and built</li>
+          <li>Works beautifully on every phone</li>
+          <li>Search setup</li>
+          <li>Logo and brand colours</li>
+          <li>One round of revisions</li>
+        </ul>
+      </li>
+
+      <li class="f-plan f-plan--lit">
+        <span class="f-plan__flag">Our recommendation</span>
+        <h3 class="f-h3">Growth</h3>
+        <p class="f-plan__desc">For a business that needs its whole online presence handled.</p>
+        <p class="f-price">
+          <span class="f-price__cur">$</span>
+          <span class="f-price__amt" data-f-price data-monthly="1,299" data-project="3,499"
+            >1,299</span
+          >
+        </p>
+        <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
+          per month
+        </p>
+        <a href="#contact" class="f-btn f-btn--primary">Choose Growth</a>
+        <ul class="f-leaflist">
+          <li>Website up to 15 pages</li>
+          <li>Full brand identity</li>
+          <li>Search growth plan</li>
+          <li>Social media management</li>
+          <li>Monthly results report</li>
+          <li>Online store ready</li>
+        </ul>
+      </li>
+
+      <li class="f-plan">
+        <h3 class="f-h3">Scale</h3>
+        <p class="f-plan__desc">For an established team that wants a dedicated studio on call.</p>
+        <p class="f-price">
+          <span class="f-price__amt">Custom</span>
+        </p>
+        <p class="f-price__per">Quoted after a call</p>
+        <a href="#contact" class="f-btn f-btn--ghost">Talk to us</a>
+        <ul class="f-leaflist">
+          <li>Everything in Growth</li>
+          <li>Custom web apps</li>
+          <li>Paid ads and email campaigns</li>
+          <li>A dedicated contact</li>
+          <li>Quarterly strategy sessions</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="f-pricing__note">Prices in US dollars. Not sure which fits? Ask us and we'll tell you.</p>
+  </div>
+</section>
