@@ -1,7 +1,8 @@
 ---
 import ForestHead from '../components/forest/ForestHead.astro';
-// Homepage shell for the forest theme. additions.css carries the contact
-// form's base styles; forest.css is the design system and must load last.
+import ForestMark from '../components/forest/ForestMark.astro';
+// Homepage shell. additions.css carries the contact form's base styles;
+// forest.css is the design system and must load last.
 import '../styles/additions.css';
 import '../styles/forest.css';
 
@@ -19,9 +20,16 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
-    <ForestHead title={title} description={description} />
+    <ForestHead title={title} description={description} intro />
   </head>
   <body class="forest">
+    <div class="f-intro" aria-hidden="true">
+      <div class="f-intro__mark">
+        <ForestMark size={92} />
+        <span class="f-intro__word">ClarityScale</span>
+      </div>
+    </div>
+    <div class="f-glow" aria-hidden="true" data-f-glow></div>
     <slot />
     <script>
       import '../scripts/forest.ts';

@@ -4,8 +4,10 @@ interface Props {
   title: string;
   description: string;
   ogType?: string;
+  /** Play the intro curtain (homepage, first visit per session). */
+  intro?: boolean;
 }
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', intro = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
@@ -13,7 +15,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="theme-color" content="#0b1611" />
+<meta name="theme-color" content="#07041a" />
 <meta name="color-scheme" content="dark" />
 <link rel="canonical" href={canonical} />
 <link rel="icon" type="image/svg+xml" href="/logo_hq.svg" />
@@ -24,16 +26,36 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content="ClarityScale" />
 
-{/* Enable the scroll-driven hero before first paint (skipped for reduced motion). */}
-<script is:inline>
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('f-motion');
-  }
-</script>
+{/* Decide motion before first paint, so nothing jumps (skipped for reduced motion). */}
+{
+  intro ? (
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        root.classList.add('f-motion');
+        try {
+          if (!sessionStorage.getItem('cs-intro')) {
+            root.classList.add('f-intro-on');
+            sessionStorage.setItem('cs-intro', '1');
+          }
+        } catch (e) {
+          /* storage unavailable: skip the intro */
+        }
+      })();
+    </script>
+  ) : (
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('f-motion');
+      }
+    </script>
+  )
+}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&display=swap"
   rel="stylesheet"
 />

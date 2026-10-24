@@ -6,7 +6,7 @@
 
 <section id="pricing" class="f-section f-pricing" aria-labelledby="f-pricing-title">
   <div class="f-wrap">
-    <div class="f-pricing__top">
+    <div class="f-pricing__top" data-f-reveal>
       <div>
         <h2 class="f-h2" id="f-pricing-title">Pricing</h2>
         <p class="f-lede">
@@ -14,14 +14,15 @@
           price is agreed in writing before work starts.
         </p>
       </div>
-      <div class="f-billing" role="group" aria-label="Billing" data-f-billing>
+      <div class="f-billing" role="group" aria-label="Billing" data-f-billing data-mode="monthly">
+        <span class="f-billing__thumb" aria-hidden="true"></span>
         <button type="button" data-mode="monthly" aria-pressed="true">Monthly</button>
         <button type="button" data-mode="project" aria-pressed="false">One project</button>
       </div>
     </div>
 
     <ul class="f-plans">
-      <li class="f-plan">
+      <li class="f-plan" data-f-reveal>
         <h3 class="f-h3">Starter</h3>
         <p class="f-plan__desc">For a small business or solo founder who needs a strong site, fast.</p>
         <p class="f-price">
@@ -31,7 +32,7 @@
         <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
           per month
         </p>
-        <a href="#contact" class="f-btn f-btn--ghost">Choose Starter</a>
+        <a href="#contact" class="f-btn f-btn--ghost"><span>Choose Starter</span></a>
         <ul class="f-leaflist">
           <li>Five-page website, designed and built</li>
           <li>Works beautifully on every phone</li>
@@ -41,7 +42,7 @@
         </ul>
       </li>
 
-      <li class="f-plan f-plan--lit">
+      <li class="f-plan f-plan--lit" data-f-reveal style="--d:0.08s">
         <span class="f-plan__flag">Our recommendation</span>
         <h3 class="f-h3">Growth</h3>
         <p class="f-plan__desc">For a business that needs its whole online presence handled.</p>
@@ -54,7 +55,7 @@
         <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
           per month
         </p>
-        <a href="#contact" class="f-btn f-btn--primary">Choose Growth</a>
+        <a href="#contact" class="f-btn f-btn--primary"><span>Choose Growth</span></a>
         <ul class="f-leaflist">
           <li>Website up to 15 pages</li>
           <li>Full brand identity</li>
@@ -65,14 +66,14 @@
         </ul>
       </li>
 
-      <li class="f-plan">
+      <li class="f-plan" data-f-reveal style="--d:0.16s">
         <h3 class="f-h3">Scale</h3>
         <p class="f-plan__desc">For an established team that wants a dedicated studio on call.</p>
         <p class="f-price">
           <span class="f-price__amt">Custom</span>
         </p>
         <p class="f-price__per">Quoted after a call</p>
-        <a href="#contact" class="f-btn f-btn--ghost">Talk to us</a>
+        <a href="#contact" class="f-btn f-btn--ghost"><span>Talk to us</span></a>
         <ul class="f-leaflist">
           <li>Everything in Growth</li>
           <li>Custom web apps</li>
