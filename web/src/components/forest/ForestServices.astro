@@ -1,133 +1,82 @@
 ---
 // What we make. Each service is a native <details> row, so opening one is
 // keyboard- and screen-reader-friendly with no script.
+const services = [
+  {
+    name: 'Websites',
+    tag: 'Design and build',
+    text: 'Fast, custom-built sites that explain what you do in seconds and make the next step obvious. Built so you can change them without calling us.',
+    items: ['Landing pages to full multi-page sites', 'Built to load fast on phones', 'Easy content editing after launch'],
+  },
+  {
+    name: 'Interface design',
+    tag: 'Product and UX',
+    text: 'Screens people understand on first look. We design the flows that matter most, like booking, joining or buying, and test them before anything is built.',
+    items: ['User flows and wireframes', 'High-fidelity designs in Figma', 'Clickable prototypes'],
+  },
+  {
+    name: 'Brand identity',
+    tag: 'Look and voice',
+    text: 'A logo, colours, type and voice that look like you on every screen, sign and post, written down so anyone on your team can use them.',
+    items: ['Logo and mark', 'Colour and type system', 'Brand guidelines'],
+  },
+  {
+    name: 'Search growth',
+    tag: 'SEO',
+    text: 'Technical SEO built in from the first line of code, then content and local search work that brings in people already looking for you.',
+    items: ['Technical SEO and site speed', 'Google Business Profile setup', 'Monthly search reports'],
+  },
+  {
+    name: 'Online stores',
+    tag: 'E-commerce',
+    text: "Shops on Shopify, WooCommerce or a custom stack, designed around a checkout that doesn't lose people halfway.",
+    items: ['Product pages that sell', 'Payments and shipping setup', 'Inventory and order tools'],
+  },
+  {
+    name: 'Marketing',
+    tag: 'Social, ads, email',
+    text: 'Social, ads and email that sound like your brand and point back to a site built to convert the attention they bring.',
+    items: ['Instagram content and ads', 'Email campaigns', 'Results you can read'],
+  },
+];
 ---
 
-<section id="services" class="f-section f-services" aria-labelledby="f-services-title">
-  <div class="f-wrap f-services__grid">
-    <div class="f-services__head" data-f-reveal>
-      <h2 class="f-h2" id="f-services-title">What we make</h2>
-      <p class="f-lede">
-        Six things, done properly. Most clients start with a website and add the rest as the
-        business grows. Open any of them to see what's included.
-      </p>
-    </div>
+<section id="services" class="f-section" aria-labelledby="f-services-title">
+  <div class="f-wrap">
+    <header class="f-head">
+      <p class="f-eyebrow"><span>01</span> Services</p>
+      <div class="f-head__main">
+        <h2 class="f-h2" id="f-services-title" data-f-split>What we <em>make</em></h2>
+        <p class="f-lede" data-f-reveal>
+          Six things, done properly. Most clients start with a website and add the rest as the
+          business grows. Open any of them to see what's included.
+        </p>
+      </div>
+    </header>
 
-    <ul class="f-service-list">
-      <li data-f-reveal style="--d:0.00s">
-        <details class="f-service" open>
-          <summary>
-            <span class="f-service__name">Websites</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              Fast, custom-built sites that explain what you do in seconds and make the next step
-              obvious. Built so you can change them without calling us.
-            </p>
-            <ul class="f-leaflist">
-              <li>Landing pages to full multi-page sites</li>
-              <li>Built to load fast on phones</li>
-              <li>Easy content editing after launch</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li data-f-reveal style="--d:0.07s">
-        <details class="f-service">
-          <summary>
-            <span class="f-service__name">Interface design</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              Screens people understand on first look. We design the flows that matter most, like
-              booking, joining or buying, and test them before anything is built.
-            </p>
-            <ul class="f-leaflist">
-              <li>User flows and wireframes</li>
-              <li>High-fidelity designs in Figma</li>
-              <li>Clickable prototypes</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li data-f-reveal style="--d:0.14s">
-        <details class="f-service">
-          <summary>
-            <span class="f-service__name">Brand identity</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              A logo, colours, type and voice that look like you on every screen, sign and post,
-              written down so anyone on your team can use them.
-            </p>
-            <ul class="f-leaflist">
-              <li>Logo and mark</li>
-              <li>Colour and type system</li>
-              <li>Brand guidelines</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li data-f-reveal style="--d:0.21s">
-        <details class="f-service">
-          <summary>
-            <span class="f-service__name">Search growth</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              Technical SEO built in from the first line of code, then content and local search
-              work that brings in people already looking for you.
-            </p>
-            <ul class="f-leaflist">
-              <li>Technical SEO and site speed</li>
-              <li>Google Business Profile setup</li>
-              <li>Monthly search reports</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li data-f-reveal style="--d:0.28s">
-        <details class="f-service">
-          <summary>
-            <span class="f-service__name">Online stores</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              Shops on Shopify, WooCommerce or a custom stack, designed around a checkout that
-              doesn't lose people halfway.
-            </p>
-            <ul class="f-leaflist">
-              <li>Product pages that sell</li>
-              <li>Payments and shipping setup</li>
-              <li>Inventory and order tools</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-      <li data-f-reveal style="--d:0.35s">
-        <details class="f-service">
-          <summary>
-            <span class="f-service__name">Marketing</span>
-            <span class="f-service__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="f-service__body">
-            <p>
-              Social, ads and email that sound like your brand and point back to a site built to
-              convert the attention they bring.
-            </p>
-            <ul class="f-leaflist">
-              <li>Instagram content and ads</li>
-              <li>Email campaigns</li>
-              <li>Results you can read</li>
-            </ul>
-          </div>
-        </details>
-      </li>
-    </ul>
+    <ol class="f-services">
+      {
+        services.map((s, i) => (
+          <li data-f-reveal style={`--d:${(i * 0.06).toFixed(2)}s`}>
+            <details class="f-service" open={i === 0}>
+              <summary>
+                <span class="f-service__no">{String(i + 1).padStart(2, '0')}</span>
+                <span class="f-service__name">{s.name}</span>
+                <span class="f-service__tag">{s.tag}</span>
+                <span class="f-service__icon" aria-hidden="true" />
+              </summary>
+              <div class="f-service__body">
+                <p>{s.text}</p>
+                <ul class="f-ticks">
+                  {s.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          </li>
+        ))
+      }
+    </ol>
   </div>
 </section>

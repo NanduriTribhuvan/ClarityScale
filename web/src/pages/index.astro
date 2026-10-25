@@ -2,16 +2,16 @@
 import ForestLayout from '../layouts/ForestLayout.astro';
 import ForestNav from '../components/forest/ForestNav.astro';
 import ForestHero from '../components/forest/ForestHero.astro';
-import ForestMarquee from '../components/forest/ForestMarquee.astro';
+import ForestManifesto from '../components/forest/ForestManifesto.astro';
 import ForestServices from '../components/forest/ForestServices.astro';
 import ForestWork from '../components/forest/ForestWork.astro';
 import ForestProcess from '../components/forest/ForestProcess.astro';
 import ForestPricing from '../components/forest/ForestPricing.astro';
 import ForestFooter from '../components/forest/ForestFooter.astro';
 
-// The forest homepage: a walk from the forest edge (hero), through the woods
-// (services, work, process, pricing) into the clearing (contact). Static
-// markup is pre-rendered; only the contact form hydrates.
+// The forest homepage: you walk down the clearing at dusk (hero), through
+// the woods (studio, services, work, process, pricing) and out into the dawn
+// (contact). Static markup is pre-rendered; only the contact form hydrates.
 export const prerender = true;
 ---
 
@@ -19,7 +19,7 @@ export const prerender = true;
   <ForestNav />
   <main id="main">
     <ForestHero />
-    <ForestMarquee />
+    <ForestManifesto />
     <ForestServices />
     <ForestWork />
     <ForestProcess />
