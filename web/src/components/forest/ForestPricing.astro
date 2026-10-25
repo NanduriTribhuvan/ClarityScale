@@ -2,87 +2,138 @@
 // Pricing. Monthly retainer vs one project. The toggle (src/scripts/forest.ts)
 // swaps each [data-f-price] / [data-f-period] between its data-monthly and
 // data-project values. Without JavaScript the monthly prices stay visible.
+const plans = [
+  {
+    name: 'Starter',
+    desc: 'For a small business or solo founder who needs a strong site, fast.',
+    monthly: '499',
+    project: '1,299',
+    cta: 'Choose Starter',
+    items: [
+      'Five-page website, designed and built',
+      'Works beautifully on every phone',
+      'Search setup',
+      'Logo and brand colours',
+      'One round of revisions',
+    ],
+  },
+  {
+    name: 'Growth',
+    desc: 'For a business that needs its whole online presence handled.',
+    monthly: '1,299',
+    project: '3,499',
+    cta: 'Choose Growth',
+    lit: true,
+    items: [
+      'Website up to 15 pages',
+      'Full brand identity',
+      'Search growth plan',
+      'Social media management',
+      'Monthly results report',
+      'Online store ready',
+    ],
+  },
+  {
+    name: 'Scale',
+    desc: 'For an established team that wants a dedicated studio on call.',
+    cta: 'Talk to us',
+    items: [
+      'Everything in Growth',
+      'Custom web apps',
+      'Paid ads and email campaigns',
+      'A dedicated contact',
+      'Quarterly strategy sessions',
+    ],
+  },
+];
 ---
 
-<section id="pricing" class="f-section f-pricing" aria-labelledby="f-pricing-title">
+<section id="pricing" class="f-section" aria-labelledby="f-pricing-title">
   <div class="f-wrap">
-    <div class="f-pricing__top" data-f-reveal>
-      <div>
-        <h2 class="f-h2" id="f-pricing-title">Pricing</h2>
-        <p class="f-lede">
-          Pay monthly and we stay on as your web team, or pay once for a single project. Every
-          price is agreed in writing before work starts.
-        </p>
+    <header class="f-head">
+      <p class="f-eyebrow"><span>04</span> Pricing</p>
+      <div class="f-head__main">
+        <h2 class="f-h2" id="f-pricing-title" data-f-split>Simple, <em>honest</em> pricing</h2>
+        <div class="f-pricing__bar" data-f-reveal>
+          <p class="f-lede">
+            Pay monthly and we stay on as your web team, or pay once for a single project. Every
+            price is agreed in writing before work starts.
+          </p>
+          <div
+            class="f-billing"
+            role="group"
+            aria-label="Billing"
+            data-f-billing
+            data-mode="monthly"
+          >
+            <span class="f-billing__thumb" aria-hidden="true"></span>
+            <button type="button" data-mode="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" data-mode="project" aria-pressed="false">One project</button>
+          </div>
+        </div>
       </div>
-      <div class="f-billing" role="group" aria-label="Billing" data-f-billing data-mode="monthly">
-        <span class="f-billing__thumb" aria-hidden="true"></span>
-        <button type="button" data-mode="monthly" aria-pressed="true">Monthly</button>
-        <button type="button" data-mode="project" aria-pressed="false">One project</button>
-      </div>
-    </div>
+    </header>
 
     <ul class="f-plans">
-      <li class="f-plan" data-f-reveal>
-        <h3 class="f-h3">Starter</h3>
-        <p class="f-plan__desc">For a small business or solo founder who needs a strong site, fast.</p>
-        <p class="f-price">
-          <span class="f-price__cur">$</span>
-          <span class="f-price__amt" data-f-price data-monthly="499" data-project="1,299">499</span>
-        </p>
-        <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
-          per month
-        </p>
-        <a href="#contact" class="f-btn f-btn--ghost"><span>Choose Starter</span></a>
-        <ul class="f-leaflist">
-          <li>Five-page website, designed and built</li>
-          <li>Works beautifully on every phone</li>
-          <li>Search setup</li>
-          <li>Logo and brand colours</li>
-          <li>One round of revisions</li>
-        </ul>
-      </li>
-
-      <li class="f-plan f-plan--lit" data-f-reveal style="--d:0.08s">
-        <span class="f-plan__flag">Our recommendation</span>
-        <h3 class="f-h3">Growth</h3>
-        <p class="f-plan__desc">For a business that needs its whole online presence handled.</p>
-        <p class="f-price">
-          <span class="f-price__cur">$</span>
-          <span class="f-price__amt" data-f-price data-monthly="1,299" data-project="3,499"
-            >1,299</span
+      {
+        plans.map((p, i) => (
+          <li
+            class:list={['f-plan', { 'f-plan--lit': p.lit }]}
+            data-f-reveal
+            style={`--d:${i * 0.08}s`}
           >
-        </p>
-        <p class="f-price__per" data-f-period data-monthly="per month" data-project="one project">
-          per month
-        </p>
-        <a href="#contact" class="f-btn f-btn--primary"><span>Choose Growth</span></a>
-        <ul class="f-leaflist">
-          <li>Website up to 15 pages</li>
-          <li>Full brand identity</li>
-          <li>Search growth plan</li>
-          <li>Social media management</li>
-          <li>Monthly results report</li>
-          <li>Online store ready</li>
-        </ul>
-      </li>
-
-      <li class="f-plan" data-f-reveal style="--d:0.16s">
-        <h3 class="f-h3">Scale</h3>
-        <p class="f-plan__desc">For an established team that wants a dedicated studio on call.</p>
-        <p class="f-price">
-          <span class="f-price__amt">Custom</span>
-        </p>
-        <p class="f-price__per">Quoted after a call</p>
-        <a href="#contact" class="f-btn f-btn--ghost"><span>Talk to us</span></a>
-        <ul class="f-leaflist">
-          <li>Everything in Growth</li>
-          <li>Custom web apps</li>
-          <li>Paid ads and email campaigns</li>
-          <li>A dedicated contact</li>
-          <li>Quarterly strategy sessions</li>
-        </ul>
-      </li>
+            <div class="f-plan__top">
+              <h3 class="f-plan__name">{p.name}</h3>
+              {p.lit && <span class="f-plan__flag">Most chosen</span>}
+            </div>
+            <p class="f-plan__desc">{p.desc}</p>
+            {p.monthly ? (
+              <>
+                <p class="f-price">
+                  <span class="f-price__cur">$</span>
+                  <span
+                    class="f-price__amt"
+                    data-f-price
+                    data-monthly={p.monthly}
+                    data-project={p.project}
+                  >
+                    {p.monthly}
+                  </span>
+                </p>
+                <p
+                  class="f-price__per"
+                  data-f-period
+                  data-monthly="per month"
+                  data-project="one project"
+                >
+                  per month
+                </p>
+              </>
+            ) : (
+              <>
+                <p class="f-price">
+                  <span class="f-price__amt">Custom</span>
+                </p>
+                <p class="f-price__per">Quoted after a call</p>
+              </>
+            )}
+            <a
+              href="#contact"
+              class:list={['f-btn', 'f-btn--full', p.lit ? 'f-btn--primary' : 'f-btn--ghost']}
+            >
+              <span>{p.cta}</span>
+            </a>
+            <ul class="f-ticks">
+              {p.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
     </ul>
-    <p class="f-pricing__note">Prices in US dollars. Not sure which fits? Ask us and we'll tell you.</p>
+    <p class="f-pricing__note">
+      Prices in US dollars. Not sure which fits? Ask us and we'll tell you honestly.
+    </p>
   </div>
 </section>

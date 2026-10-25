@@ -1,55 +1,54 @@
 ---
-// How a project goes. This content is a real sequence, so the steps are
-// counted and drawn as a marked trail (painted blazes on a dashed path).
+// How a project goes: a real sequence, drawn as a path that fills in as you
+// scroll (--trail, set by src/scripts/forest.ts). Steps light up in turn.
+const steps = [
+  {
+    title: 'Talk',
+    text: "A short call about your business, your customers and what isn't working today. No prep needed.",
+  },
+  {
+    title: 'Plan',
+    text: 'We map the pages, the content and the one thing the site has to do. You get a written scope and a price before design starts.',
+  },
+  {
+    title: 'Design and build',
+    text: "You see real pages early and give feedback as we go. Nothing ships until you've approved it.",
+  },
+  {
+    title: 'Launch and grow',
+    text: 'We launch, watch how people use the site, and keep improving the parts that bring in customers.',
+  },
+];
 ---
 
-<section id="how-it-works" class="f-section f-process" data-f-trail aria-labelledby="f-process-title">
+<section
+  id="how-it-works"
+  class="f-section f-process"
+  data-f-trail
+  aria-labelledby="f-process-title"
+>
   <div class="f-wrap">
-    <div class="f-process__head" data-f-reveal>
-      <h2 class="f-h2" id="f-process-title">How a project goes</h2>
-      <p class="f-lede">
-        Four steps, the same every time. You always know where we are, what's next and what it
-        costs.
-      </p>
-    </div>
+    <header class="f-head">
+      <p class="f-eyebrow"><span>03</span> Process</p>
+      <div class="f-head__main">
+        <h2 class="f-h2" id="f-process-title" data-f-split>How a project <em>goes</em></h2>
+        <p class="f-lede" data-f-reveal>
+          Four steps, the same every time. You always know where we are, what's next and what it
+          costs.
+        </p>
+      </div>
+    </header>
 
     <ol class="f-steps">
-      <li class="f-step" data-f-reveal style="--d:0.0s">
-        <span class="f-blaze" aria-hidden="true"></span>
-        <span class="f-step__count">Step 1</span>
-        <h3 class="f-h3">Talk</h3>
-        <p>
-          A short call about your business, your customers and what isn't working today. No
-          prep needed.
-        </p>
-      </li>
-      <li class="f-step" data-f-reveal style="--d:0.1s">
-        <span class="f-blaze" aria-hidden="true"></span>
-        <span class="f-step__count">Step 2</span>
-        <h3 class="f-h3">Plan</h3>
-        <p>
-          We map the pages, the content and the one thing the site has to do. You get a written
-          scope and a price before design starts.
-        </p>
-      </li>
-      <li class="f-step" data-f-reveal style="--d:0.2s">
-        <span class="f-blaze" aria-hidden="true"></span>
-        <span class="f-step__count">Step 3</span>
-        <h3 class="f-h3">Design and build</h3>
-        <p>
-          You see real pages early and give feedback as we go. Nothing ships until you've
-          approved it.
-        </p>
-      </li>
-      <li class="f-step" data-f-reveal style="--d:0.3s">
-        <span class="f-blaze" aria-hidden="true"></span>
-        <span class="f-step__count">Step 4</span>
-        <h3 class="f-h3">Launch and grow</h3>
-        <p>
-          We launch, watch how people use the site, and keep improving the parts that bring in
-          customers.
-        </p>
-      </li>
+      {
+        steps.map((s, i) => (
+          <li class="f-step" data-f-reveal style={`--d:${i * 0.08}s`}>
+            <span class="f-step__no">Step {i + 1}</span>
+            <h3 class="f-h3">{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))
+      }
     </ol>
   </div>
 </section>

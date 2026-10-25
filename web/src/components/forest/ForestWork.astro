@@ -1,122 +1,81 @@
 ---
-// Recent work: live client sites. The "window" is a stylised poster of each
-// project (not a screenshot) and is hidden from assistive tech because the
-// text link below it goes to the same place.
+// Recent work: live client sites as a typographic index. Each row is one
+// link to the live site; on hover the row floods with that project's colour
+// (a shade of the logo palette dark enough for white text).
+const projects = [
+  {
+    name: 'EaglePicks',
+    url: 'https://www.eaglepicks.org/',
+    domain: 'eaglepicks.org',
+    field: 'Sports picks community',
+    text: 'A home base for a sports picks community, built so new visitors understand the offer and can join in a few taps.',
+    accent: '#1f4fd1',
+  },
+  {
+    name: 'Kan Hustle Fitness',
+    url: 'https://www.kanhustlefitness.com/',
+    domain: 'kanhustlefitness.com',
+    field: 'Fitness and coaching',
+    text: "A training brand's site with the energy of the gym floor, built to turn visitors into booked sessions.",
+    accent: '#b93c0b',
+  },
+  {
+    name: 'Maa Day Care',
+    url: 'https://maa-day-care.vercel.app/',
+    domain: 'maa-day-care.vercel.app',
+    field: 'Childcare',
+    text: 'A warm, calm site that gives parents the answers they look for first and an easy way to get in touch.',
+    accent: '#9e1685',
+  },
+];
 ---
 
-<section id="work" class="f-section f-work" aria-labelledby="f-work-title">
+<section id="work" class="f-section" aria-labelledby="f-work-title">
   <div class="f-wrap">
-    <div class="f-work__head" data-f-reveal>
-      <h2 class="f-h2" id="f-work-title">Recent work</h2>
-      <p class="f-lede">
-        Live sites we designed and built for growing businesses. Each one opens in a new tab, so
-        you can see how they feel on your own phone.
-      </p>
-    </div>
+    <header class="f-head">
+      <p class="f-eyebrow"><span>02</span> Work</p>
+      <div class="f-head__main">
+        <h2 class="f-h2" id="f-work-title" data-f-split>Recent <em>work</em></h2>
+        <p class="f-lede" data-f-reveal>
+          Live sites we designed and built for growing businesses. Each one opens in a new tab, so
+          you can see how it feels on your own phone.
+        </p>
+      </div>
+    </header>
 
-    <ul class="f-projects">
-      <li class="f-project" data-f-reveal>
-        <a
-          class="f-window"
-          data-f-tilt
-          href="https://www.eaglepicks.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabindex="-1"
-          aria-hidden="true"
-        >
-          <span class="f-window__bar"><i></i><i></i><i></i><span class="f-window__url">eaglepicks.org</span></span>
-          <span class="f-poster f-poster--eagle">
-            <span class="f-poster__name">EaglePicks</span>
-            <span class="f-poster__sun"></span>
-            <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" focusable="false">
-              <path d="M-5 111L3 138L-1 136L10 167L2 165L14 197L4 195L20 228L8 225L23 259L10 256L28 290L-2 294L-8 294L-40 290L-19 256L-34 259L-17 225L-30 228L-13 195L-24 197L-12 165L-20 167L-8 136L-13 138ZM70 61L85 114L78 110L101 171L85 167L117 230L89 226L127 290L75 294L66 294L13 290L52 226L26 230L56 167L40 171L63 110L54 114ZM130 154L137 186L133 183L145 220L136 217L150 255L139 252L153 290L132 294L128 294L105 290L120 252L109 255L123 217L115 220L126 183L122 186ZM157 159L163 183L159 181L169 209L162 207L173 236L163 234L177 263L165 261L179 290L159 294L155 294L135 290L148 261L136 263L151 234L142 236L151 207L145 209L154 181L150 183ZM237 52L250 96L243 92L260 143L248 139L273 191L253 187L284 240L255 236L284 290L241 294L232 294L185 290L218 236L192 240L220 187L200 191L226 139L212 143L230 92L222 96ZM248 54L264 109L255 104L278 168L260 163L284 228L266 224L299 290L252 294L244 294L200 290L230 224L210 228L236 163L220 168L241 104L231 109ZM316 153L326 185L321 182L333 219L323 216L340 254L327 251L344 290L319 294L314 294L286 290L306 251L294 254L310 216L300 219L312 182L307 185ZM370 115L377 142L373 140L382 170L376 168L387 200L378 197L394 229L379 227L396 260L381 257L400 290L373 294L368 294L339 290L359 257L344 260L362 227L348 229L362 197L353 200L364 168L358 170L367 140L363 142ZM413 139L421 167L417 164L428 196L420 194L434 227L423 225L439 258L425 256L447 290L416 294L410 294L377 290L401 256L386 258L403 225L391 227L406 194L398 196L409 164L405 167ZM471 83L485 122L476 118L493 162L481 159L501 204L483 201L512 247L492 244L521 290L475 294L467 294L423 290L451 244L429 247L460 201L442 204L461 159L449 162L466 118L459 122ZM525 148L530 169L527 167L535 193L529 191L538 216L531 214L543 241L532 239L550 265L536 263L552 290L527 294L522 294L499 290L513 263L501 265L517 239L505 241L518 214L510 216L520 191L514 193L522 167L519 169ZM602 69L614 103L607 100L623 139L612 136L630 176L614 173L635 213L616 210L643 251L619 249L646 290L606 294L598 294L556 290L584 249L562 251L588 210L570 213L590 173L572 176L592 136L581 139L597 100L590 103ZM620 105L631 148L626 145L640 195L629 191L649 242L634 238L653 290L623 294L617 294L586 290L606 238L591 242L612 191L600 195L615 145L609 148ZM690 146L698 173L694 170L702 201L696 199L706 230L697 228L712 260L700 258L716 290L692 294L688 294L662 290L680 258L668 260L684 228L674 230L685 199L679 201L687 170L683 173ZM723 56L735 111L729 106L746 169L732 165L753 229L736 224L762 290L726 294L719 294L681 290L709 224L691 229L713 165L699 169L716 106L709 111ZM814 96L825 141L819 137L832 190L823 186L843 239L828 235L850 290L817 294L811 294L778 290L800 235L785 239L806 186L796 190L810 137L803 141ZM-40 1000L-40 281L15 271L70 274L125 286L180 289L235 279L290 270L345 276L400 287L455 288L510 277L565 270L620 278L675 289L730 287L785 275L840 270L840 1000Z"></path>
-            </svg>
-          </span>
-        </a>
-        <div class="f-project__text">
-          <p class="f-project__meta">Sports picks community</p>
-          <h3 class="f-h3">EaglePicks</h3>
-          <p>A home base for a sports picks community, built so new visitors understand the offer and can join in a few taps.</p>
-          <ul class="f-tags" aria-label="What we did">
-            <li>Web design</li>
-            <li>Development</li>
-          </ul>
-          <a class="f-visit" href="https://www.eaglepicks.org/" target="_blank" rel="noopener noreferrer">
-            <span>Visit eaglepicks.org</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5"></path></svg>
-            <span class="f-sr">(opens in a new tab)</span>
-          </a>
-        </div>
-      </li>
-      <li class="f-project" data-f-reveal>
-        <a
-          class="f-window"
-          data-f-tilt
-          href="https://www.kanhustlefitness.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabindex="-1"
-          aria-hidden="true"
-        >
-          <span class="f-window__bar"><i></i><i></i><i></i><span class="f-window__url">kanhustlefitness.com</span></span>
-          <span class="f-poster f-poster--hustle">
-            <span class="f-poster__name">Kan Hustle Fitness</span>
-            <span class="f-poster__sun"></span>
-            <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" focusable="false">
-              <path d="M11 136L19 160L15 158L25 185L17 183L29 211L20 209L34 237L21 235L42 263L24 261L48 290L14 294L9 294L-26 290L-1 261L-20 263L2 235L-13 237L3 209L-7 211L6 183L-3 185L8 158L4 160ZM70 49L81 94L76 90L91 141L81 137L104 190L87 186L114 240L87 236L127 290L74 294L66 294L14 290L52 236L27 240L52 186L34 190L59 137L47 141L64 90L57 94ZM131 156L138 181L134 179L143 207L136 205L148 234L138 232L151 262L141 260L155 290L133 294L129 294L106 290L121 260L110 262L124 232L114 234L126 205L119 207L128 179L124 181ZM150 73L161 106L155 103L169 142L160 139L179 178L163 175L187 215L166 212L196 252L171 249L202 290L154 294L146 294L96 290L130 249L104 252L134 212L111 215L137 175L122 178L141 139L130 142L145 103L139 106ZM215 117L224 149L220 146L231 183L222 180L241 218L228 215L246 254L228 251L249 290L218 294L212 294L178 290L201 251L182 254L201 215L187 218L207 180L198 183L209 146L204 149ZM254 130L265 167L260 164L275 207L265 204L282 248L267 245L292 290L257 294L251 294L218 290L241 245L225 248L243 204L231 207L248 164L242 167ZM327 144L336 178L331 175L344 215L333 212L348 252L338 249L354 290L329 294L325 294L299 290L316 249L305 252L321 212L311 215L323 175L319 178ZM395 151L404 176L399 174L409 204L402 202L415 232L404 230L422 261L407 259L426 290L397 294L392 294L364 290L382 259L369 261L386 230L375 232L388 202L380 204L391 174L386 176ZM427 111L439 153L432 149L449 198L436 194L456 243L440 240L467 290L430 294L424 294L388 290L414 240L397 243L418 194L406 198L421 149L415 153ZM470 163L476 182L473 181L480 203L474 201L486 224L477 223L488 246L479 244L494 268L479 266L499 290L472 294L468 294L441 290L461 266L447 268L461 244L451 246L464 223L455 224L466 201L460 203L467 181L464 182ZM526 83L536 132L531 128L545 183L535 179L555 236L540 232L566 290L529 294L522 294L487 290L511 232L496 236L516 179L505 183L520 128L514 132ZM575 112L586 145L580 142L594 180L583 177L603 216L586 213L608 253L589 250L612 290L579 294L572 294L537 290L562 250L542 253L565 213L548 216L568 177L557 180L571 142L565 145ZM623 65L633 107L627 103L641 151L630 147L650 197L635 193L659 243L639 239L666 290L626 294L620 294L579 290L607 239L587 243L611 193L598 197L615 147L605 151L619 103L613 107ZM680 78L689 111L684 108L697 145L688 142L703 181L691 178L710 217L693 214L717 253L696 250L722 290L684 294L677 294L637 290L664 250L645 253L668 214L649 217L670 178L656 181L673 142L663 145L677 108L671 111ZM759 110L766 138L762 135L773 167L764 164L781 197L768 195L784 228L769 225L788 259L774 256L793 290L762 294L756 294L723 290L744 256L729 259L748 225L735 228L749 195L737 197L753 164L745 167L756 135L751 138ZM793 56L804 99L798 95L815 145L803 142L824 193L805 189L836 241L812 237L841 290L797 294L789 294L744 290L773 237L751 241L781 189L762 193L783 142L770 145L788 95L781 99ZM-40 1000L-40 270L15 280L70 290L125 285L180 273L235 271L290 282L345 290L400 283L455 272L510 272L565 284L620 290L675 281L730 271L785 274L840 286L840 1000Z"></path>
-            </svg>
-          </span>
-        </a>
-        <div class="f-project__text">
-          <p class="f-project__meta">Fitness and coaching</p>
-          <h3 class="f-h3">Kan Hustle Fitness</h3>
-          <p>A training brand's site with the energy of the gym floor, built to turn visitors into booked sessions.</p>
-          <ul class="f-tags" aria-label="What we did">
-            <li>Web design</li>
-            <li>Development</li>
-          </ul>
-          <a class="f-visit" href="https://www.kanhustlefitness.com/" target="_blank" rel="noopener noreferrer">
-            <span>Visit kanhustlefitness.com</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5"></path></svg>
-            <span class="f-sr">(opens in a new tab)</span>
-          </a>
-        </div>
-      </li>
-      <li class="f-project" data-f-reveal>
-        <a
-          class="f-window"
-          data-f-tilt
-          href="https://maa-day-care.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          tabindex="-1"
-          aria-hidden="true"
-        >
-          <span class="f-window__bar"><i></i><i></i><i></i><span class="f-window__url">maa-day-care.vercel.app</span></span>
-          <span class="f-poster f-poster--maa">
-            <span class="f-poster__name">Maa Day Care</span>
-            <span class="f-poster__sun"></span>
-            <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMax slice" focusable="false">
-              <path d="M5 89L12 119L8 117L18 152L11 149L23 186L14 183L31 220L15 217L33 255L18 252L45 290L8 294L2 294L-36 290L-9 252L-26 255L-6 217L-22 220L-4 183L-14 186L-1 149L-9 152L1 117L-3 119ZM70 90L84 137L76 133L98 187L83 183L107 238L86 234L112 290L74 294L67 294L29 290L54 234L33 238L58 183L44 187L64 133L55 137ZM90 93L101 130L96 127L114 169L99 165L120 208L105 205L129 249L105 246L139 290L94 294L87 294L41 290L76 246L54 249L76 205L59 208L82 165L68 169L85 127L80 130ZM167 110L177 152L171 148L185 197L175 193L194 243L180 239L199 290L170 294L164 294L132 290L154 239L138 243L158 193L148 197L163 148L157 152ZM207 169L216 197L211 195L221 228L214 225L230 259L217 256L238 290L209 294L204 294L177 290L196 256L183 259L199 225L192 228L202 195L197 197ZM252 155L261 186L256 183L266 220L258 217L272 255L261 252L277 290L255 294L250 294L226 290L243 252L231 255L247 217L239 220L249 183L244 186ZM327 53L343 109L334 104L356 168L340 163L366 228L342 224L382 290L331 294L322 294L271 290L312 224L288 228L314 163L298 168L320 104L311 109ZM393 113L401 146L396 143L408 181L398 178L417 216L403 214L416 253L403 250L425 290L396 294L390 294L361 290L383 250L368 253L382 214L370 216L387 178L379 181L390 143L385 146ZM446 86L454 117L450 114L459 150L452 148L465 185L455 182L474 219L458 217L477 254L460 252L484 290L449 294L443 294L409 290L432 252L415 254L433 217L419 219L437 182L426 185L440 148L432 150L442 114L438 117ZM469 57L485 111L477 106L497 169L482 165L508 229L488 225L521 290L474 294L465 294L416 290L451 225L428 229L457 165L442 169L462 106L454 111ZM513 125L521 150L517 148L528 177L518 175L533 205L521 202L540 233L523 230L544 261L527 259L547 290L516 294L510 294L477 290L499 259L482 261L503 230L487 233L505 202L493 205L508 175L499 177L509 148L505 150ZM588 89L603 136L594 131L613 186L600 182L619 237L603 233L632 290L592 294L584 294L541 290L574 233L554 237L576 182L562 186L582 131L574 136ZM617 138L625 173L620 170L631 211L623 208L638 250L628 247L646 290L619 294L614 294L589 290L605 247L594 250L611 208L603 211L613 170L608 173ZM709 148L716 174L712 172L721 202L714 200L725 231L715 229L728 260L718 258L735 290L711 294L707 294L685 290L700 258L689 260L703 229L694 231L704 200L696 202L706 172L702 174ZM724 41L735 79L729 75L742 119L733 116L751 161L737 158L762 204L739 200L768 247L746 243L786 290L728 294L719 294L663 290L702 243L678 247L708 200L683 204L710 158L695 161L714 116L704 119L718 75L712 79ZM811 161L818 185L814 183L824 210L816 208L830 236L819 234L833 263L821 261L841 290L813 294L808 294L780 290L800 261L787 263L803 234L792 236L805 208L798 210L807 183L802 185ZM-40 1000L-40 284L15 272L70 272L125 283L180 290L235 282L290 271L345 273L400 285L455 290L510 280L565 270L620 275L675 287L730 289L785 278L840 270L840 1000Z"></path>
-            </svg>
-          </span>
-        </a>
-        <div class="f-project__text">
-          <p class="f-project__meta">Childcare</p>
-          <h3 class="f-h3">Maa Day Care</h3>
-          <p>A warm, calm site that gives parents the answers they look for first and an easy way to get in touch.</p>
-          <ul class="f-tags" aria-label="What we did">
-            <li>Web design</li>
-            <li>Development</li>
-          </ul>
-          <a class="f-visit" href="https://maa-day-care.vercel.app/" target="_blank" rel="noopener noreferrer">
-            <span>Visit maa-day-care.vercel.app</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5"></path></svg>
-            <span class="f-sr">(opens in a new tab)</span>
-          </a>
-        </div>
-      </li>
-    </ul>
+    <ol class="f-projects">
+      {
+        projects.map((p, i) => (
+          <li class="f-project" data-f-reveal style={`--accent:${p.accent};--d:${i * 0.08}s`}>
+            <a class="f-project__link" href={p.url} target="_blank" rel="noopener noreferrer">
+              <span class="f-project__no">{String(i + 1).padStart(2, '0')}</span>
+              <span class="f-project__main">
+                <span class="f-project__name">{p.name}</span>
+                <span class="f-project__text">{p.text}</span>
+              </span>
+              <span class="f-project__meta">
+                <span>{p.field}</span>
+                <span>{p.domain}</span>
+              </span>
+              <span class="f-project__go" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 13 13 5M6.5 5H13v6.5" />
+                </svg>
+              </span>
+              <span class="f-sr">(opens in a new tab)</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
   </div>
 </section>
